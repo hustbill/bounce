@@ -9,8 +9,9 @@
 - **[7]** Use a proper Slick StateBasedGame.
 - **[8]** Use fully specified resource path, preload resources if possible
 - **[9]** Add a paddle that can be controlled by the user, add bricks which destroyed when ball hit
+- **[10]** Add a "Lives Remaining" indicator
 
 ## Open Issues ##
 
-- **[10]** Add a "Lives Remaining" indicator
+
 - **[11]** Add a progression of three levels
