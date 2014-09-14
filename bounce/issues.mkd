@@ -8,6 +8,8 @@
 - **[6]** Add explosion sound
 - **[7]** Use a proper Slick StateBasedGame.
 - **[8]** Use fully specified resource path, preload resources if possible
+- **[9]** Add a paddle that can be controlled by the user that influences the path of ball
 
 ## Open Issues ##
+
  
