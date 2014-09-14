@@ -23,6 +23,7 @@ import org.newdawn.slick.state.StateBasedGame;
  * Transitions To GameOverState
  */
 class PlayingState extends BasicGameState {
+	int lives;
 	int bounces;
 	
 	@Override
@@ -32,7 +33,8 @@ class PlayingState extends BasicGameState {
 
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
-		bounces = 0;
+		lives = 3;
+		bounces= 0;
 		container.setSoundOn(true);
 	}
 	@Override
@@ -47,7 +49,7 @@ class PlayingState extends BasicGameState {
 			bk.render(g);
 		
 	
-		g.drawString("Bounces: " + bounces, 10, 30);
+		g.drawString("Lives Remaining: " + lives, 10, 30);
 		for (Bang b : bg.explosions)
 			b.render(g);
 
@@ -81,6 +83,14 @@ class PlayingState extends BasicGameState {
 			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.002f, 0f)));
 		}
 		
+		
+		if (input.isKeyDown(Input.KEY_W)) {
+		bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(0f, -.001f)));
+	}
+	if (input.isKeyDown(Input.KEY_S)) {
+		bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(0f, +.001f)));
+	}
+		
 		// bounce the ball...
 		boolean bounced = false;
 		if (bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth
@@ -92,9 +102,15 @@ class PlayingState extends BasicGameState {
 			bg.ball.bounce(0);
 			bounced = true;
 		}
+		
 		if (bounced) {
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
+			System.out.println("bounces= " + bounces);
+			if (bounces == 10 || bounces==20 || bounces==30){
+				lives--;
+				System.out.println("lives= " + lives);
+			}
 		}
 		bg.ball.update(delta);
 		
@@ -102,6 +118,10 @@ class PlayingState extends BasicGameState {
 		if (bg.paddle.getCoarseGrainedMaxX() > bg.ScreenWidth
 				|| bg.paddle.getCoarseGrainedMinX() < 0) {
 			bg.paddle.bounce(90);
+			bounced = true;
+		}else if (bg.paddle.getCoarseGrainedMaxY() > bg.ScreenHeight
+				|| bg.paddle.getCoarseGrainedMinY() < 0) {
+			bg.paddle.bounce(0);
 			bounced = true;
 		}
 		// detect the collision between ball and paddle
@@ -115,7 +135,7 @@ class PlayingState extends BasicGameState {
 		}
 		bg.paddle.update(delta);
 		
-		// detect the collosion between ball and bricks
+		// detect the collision between ball and bricks
 		for( int i=0; i< bg.bricks.size(); i++) {
 			Brick bk = bg.bricks.get(i);
 			if(detectCollision_brick(bg.ball.getX() ,
@@ -143,8 +163,8 @@ class PlayingState extends BasicGameState {
 			}
 		}
 
-		if (bounces >= 30) {
-			((GameOverState)game.getState(BounceGame.GAMEOVERSTATE)).setUserScore(bounces);
+		if (lives == 0) {
+			((GameOverState)game.getState(BounceGame.GAMEOVERSTATE)).setUserScore(lives);
 			game.enterState(BounceGame.GAMEOVERSTATE);
 		}
 	}
