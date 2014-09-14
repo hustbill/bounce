@@ -9,6 +9,7 @@ import jig.Vector;
  * The Paddle class is an Entity that has a velocity (since it's moving).
  * User can control a paddle to influences the path of ball
  * 
+ *  @author Hua Zhang
  */
 
 public class Paddle extends Entity{

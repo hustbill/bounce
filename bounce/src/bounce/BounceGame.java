@@ -110,7 +110,7 @@ public class BounceGame extends StateBasedGame {
 		
 		ball = new Ball(ScreenWidth / 2, ScreenHeight / 2, .1f, .2f);
 		paddle = new Paddle(ScreenWidth / 2, ScreenHeight * 19/20  , .1f, .0f);
-		// configuration  the Bricks- 17 columns , 4 rows
+		// configuration the Bricks- 17 columns , 4 rows
 		for( int i =0; i<17; i++) {
 			for(int j=0; j< 4; j++) {
 				brick = new Brick(ScreenWidth / 7 + 36*i, ScreenHeight * 1/5 + 32*j );
