@@ -14,5 +14,5 @@
 - **[12]** Add a progression of four levels
 
 ## Open Issues ##
-
+- **[13]** Corrected collision response for the ball, so it doesn't get caught in walls or in bricks.
 
