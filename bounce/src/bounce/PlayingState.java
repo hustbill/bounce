@@ -154,8 +154,8 @@ class PlayingState extends BasicGameState {
 				bg.paddle.setY(bg.ball.getY()-30);
 
 		}
-		//
-		if (input.isKeyDown(Input.KEY_F)) {			
+		//Cheat codes to allow user to access all of levels by press "P"
+		if (input.isKeyDown(Input.KEY_P)) {			
 			for( int i=0; i< bg.bricks.size(); i++) {
 				Brick bk = bg.bricks.get(i);
 				bg.ball.setY(bk.getY());
