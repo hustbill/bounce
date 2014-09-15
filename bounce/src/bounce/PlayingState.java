@@ -76,6 +76,23 @@ class PlayingState extends BasicGameState {
 //			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(+.001f, 0f)));
 //		}
 		
+		
+		if (input.isKeyDown(Input.KEY_C)) {			
+			bg.paddle.setX(bg.ball.getX());
+			if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2) 
+				bg.paddle.setY(bg.ball.getY()+30);
+			if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2) 
+				bg.paddle.setY(bg.ball.getY()-30);
+
+		}
+		//
+		if (input.isKeyDown(Input.KEY_F)) {			
+			for( int i=0; i< bg.bricks.size(); i++) {
+				Brick bk = bg.bricks.get(i);
+				bg.ball.setY(bk.getY());
+				bg.ball.setX(bk.getX());				
+			}
+		}
 		if (input.isKeyDown(Input.KEY_A)) {
 			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(-.002f, 0)));
 		}
@@ -177,12 +194,17 @@ class PlayingState extends BasicGameState {
 	//public boolean detectCollision( float ball_x, float ball_y, float paddle_x, float paddle_y) {
 		float delta_x = ball_x -paddle_x;
 		float delta_y = ball_y -paddle_y;
+//		System.out.println("ball_x=" + ball_x);
+//		System.out.println("ball_y=" + ball_y);
+//		System.out.println("paddle_x=" + paddle_x);
+//		System.out.println("paddle_y=" + paddle_y);
+		
 		if(Math.abs(delta_x) < (paddle_length/2 + radius)
 				&& Math.abs(delta_y) < (paddle_height/2 +radius ) ) {
 			//System.out.println("radius = " + radius);
 			System.out.println("collision with paddle!\n");
-//			System.out.println("delta_x = " + Math.abs(delta_x));
-//			System.out.println("delta_y = " + Math.abs(delta_y));
+			System.out.println("delta_x = " + Math.abs(delta_x));
+			System.out.println("delta_y = " + Math.abs(delta_y));
 			return true ;
 		}
 				
@@ -199,6 +221,7 @@ class PlayingState extends BasicGameState {
 	//public boolean detectCollision( float ball_x, float ball_y, float brick_x, float brick_y) {
 		float delta_x = ball_x -brick_x;
 		float delta_y = ball_y -brick_y;
+	
 		if(Math.abs(delta_x) < (brick_length/2 + radius)
 				&& Math.abs(delta_y) < (brick_height/2 +radius ) ) {			
 			System.out.println("collision with brick!\n");
