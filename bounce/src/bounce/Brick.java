@@ -15,6 +15,7 @@ public class Brick extends Entity {
 	
 	public Brick( float x,  float y) {
 		super(x, y);
+		
 		addImageWithBoundingBox(ResourceManager
 				.getImage(BounceGame.BRICK_RSC));
 	}
@@ -35,6 +36,40 @@ public class Brick extends Entity {
 		//velocity = velocity.bounce(surfaceTangent);
 	}
 
+	public void changePic(int levels) {
+		switch(levels) {
+		case 1:
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			break;
+		case 2:
+			removeImage(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.SKULL_RSC));
+			break;
+		
+		case 3:
+			removeImage(ResourceManager
+					.getImage(BounceGame.SKULL_RSC));
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.COIN_RSC));
+			break;
+		case 4:
+			removeImage(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.DOG_RSC));
+			break;
+			
+		default:
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			break;
+			
+		}
+	}
+	
 	/**
 	 * "Destroy" the Brick when the ball hit...
 	 * 

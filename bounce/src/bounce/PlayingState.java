@@ -25,17 +25,84 @@ import org.newdawn.slick.state.StateBasedGame;
 class PlayingState extends BasicGameState {
 	int lives;
 	int bounces;
-	
+	int levels =1;
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
+		
+		// configuration the Bricks
+		configBricks(game, levels);
 	}
+	
+	// configuration the Bricks- 17 columns , 4 rows
+	public void configBricks(StateBasedGame game, int levels) {
+		BounceGame bg = (BounceGame)game;
+		System.out.println("levels= " + levels);
+		switch(levels) {
+			case 1:
+			  	for( int i =0; i<17; i++) {
+					for(int j=0; j< 3; j++) {
+						bg.brick = new Brick(bg.ScreenWidth / 7 + 36*i, bg.ScreenHeight * 1/5 + 32*j);
+						bg.brick.changePic(levels);
+						bg.bricks.add(bg.brick);
+					}
+				}				
+			break;
+			
+			case 2 :
+				for( int i =0; i<10; i++) {
+					for(int j=10-i; j< 10; j++) {
+						bg.brick = new Brick(bg.ScreenWidth / 7 + 36*i, bg.ScreenHeight * 1/5 + 32*j);
+						bg.brick.changePic(levels);
+						bg.bricks.add(bg.brick);
+						
+					}
+				
+				}
+				break;
+				
+		case 3:
+				
+				for( int i =0; i<8; i++) {
+					for(int j=7-i; j< 8+i; j++) {
+						bg.brick = new Brick(bg.ScreenWidth / 7 + 36*i, bg.ScreenHeight * 1/10+ 32*j);
+						bg.brick.changePic(levels);
+						bg.bricks.add(bg.brick);
+					}
+				}
+				break;
+		    default :
+		    	for( int i =0; i<8; i++) {
+					i=i+1;
+					for( int j =0; j<8; j++) {
+						j=j+1;
+						for(int k=1;k<=2*i-1;k++){
+						if(k==1 || k==2*i-1){
+							bg.brick = new Brick(bg.ScreenWidth / 7 + 32*(k),  32*(k-i+j));
+							bg.brick.changePic(levels);
+							bg.bricks.add(bg.brick);
+							}
+						}
+					 }
+					}
+		    	break;
+		}
+		
+		
+				
+	}
+	
 
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
 		lives = 3;
 		bounces= 0;
+		levels =1;
+		
+
 		container.setSoundOn(true);
+		
+		
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
@@ -45,10 +112,12 @@ class PlayingState extends BasicGameState {
 		bg.ball.render(g);
 		bg.paddle.render(g);
 		
+		//bg.brick.render(g);
+		
+		
 		for( Brick bk : bg.bricks)
 			bk.render(g);
 		
-	
 		g.drawString("Lives Remaining: " + lives, 10, 30);
 		for (Bang b : bg.explosions)
 			b.render(g);
@@ -153,6 +222,7 @@ class PlayingState extends BasicGameState {
 		bg.paddle.update(delta);
 		
 		// detect the collision between ball and bricks
+
 		for( int i=0; i< bg.bricks.size(); i++) {
 			Brick bk = bg.bricks.get(i);
 			if(detectCollision_brick(bg.ball.getX() ,
@@ -167,10 +237,20 @@ class PlayingState extends BasicGameState {
 			}	
 		}
 		if (bg.bricks.size() == 0) {
-			//bg.enterState(BounceGame.PLAYINGSTATE);	//restart the game or go to next level
-//			((GameOverState)game.getState(BounceGame.GAMEOVERSTATE)).setUserScore(bounces);
-//			game.enterState(BounceGame.GAMEOVERSTATE);
-			System.out.println("Congratulations! You can go to the next level! ");
+			//System.out.println("Congratulations! You can go to the next level! ");		
+			levels++;
+			if (levels <=4) {
+				this.init(container, game);
+			} else {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				((GameOverState)game.getState(BounceGame.GAMEOVERSTATE)).setUserScore(lives);
+				game.enterState(BounceGame.GAMEOVERSTATE);
+			}			   
 		}
 
 		// check if there are any finished explosions, if so remove them
@@ -224,7 +304,7 @@ class PlayingState extends BasicGameState {
 	
 		if(Math.abs(delta_x) < (brick_length/2 + radius)
 				&& Math.abs(delta_y) < (brick_height/2 +radius ) ) {			
-			System.out.println("collision with brick!\n");
+			//System.out.println("collision with brick!\n");
 //			System.out.println("delta_x = " + Math.abs(delta_x));
 //			System.out.println("delta_y = " + Math.abs(delta_y));
 			return true ;
