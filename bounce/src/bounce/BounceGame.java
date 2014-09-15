@@ -46,7 +46,7 @@ public class BounceGame extends StateBasedGame {
 	public static final int PLAYINGSTATE = 1;
 	public static final int GAMEOVERSTATE = 2;
 	
-	public static final String BRICK_RSC = "bounce/resource/brick.png";
+	public static final String BRICK_RSC = "bounce/resource/skull.png";	
 	public static final String PADDLE_RSC = "bounce/resource/paddle.png";
 	public static final String BALL_BALLIMG_RSC = "bounce/resource/ball.png";	
 	public static final String BALL_BROKENIMG_RSC = "bounce/resource/brokenball.png";

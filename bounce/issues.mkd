@@ -13,5 +13,5 @@
 
 ## Open Issues ##
 
-
-- **[11]** Add a progression of three levels
+- **[11]** Cheat codes to allow user to access all of levels by press "P"
+- **[12]** Add a progression of three levels
