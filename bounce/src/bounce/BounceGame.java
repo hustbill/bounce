@@ -46,7 +46,8 @@ public class BounceGame extends StateBasedGame {
 	public static final int PLAYINGSTATE = 1;
 	public static final int GAMEOVERSTATE = 2;
 	
-	
+	public static final String DOG_RSC = "bounce/resource/dog.png";
+	public static final String COIN_RSC = "bounce/resource/coin.png";	
 	public static final String SKULL_RSC = "bounce/resource/skull.png";	
 	public static final String BRICK_RSC = "bounce/resource/brick.png";	
 	public static final String PADDLE_RSC = "bounce/resource/paddle.png";
@@ -106,6 +107,8 @@ public class BounceGame extends StateBasedGame {
 		// preload all the resources to avoid warnings & minimize latency...
 		ResourceManager.loadImage(PADDLE_RSC);
 		ResourceManager.loadImage(BRICK_RSC);	
+		ResourceManager.loadImage(COIN_RSC);
+		ResourceManager.loadImage(DOG_RSC);
 		ResourceManager.loadImage(SKULL_RSC);
 		ResourceManager.loadImage(BALL_BALLIMG_RSC);
 		ResourceManager.loadImage(BALL_BROKENIMG_RSC);

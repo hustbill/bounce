@@ -47,9 +47,26 @@ public class Brick extends Entity {
 					.getImage(BounceGame.BRICK_RSC));
 			addImageWithBoundingBox(ResourceManager
 					.getImage(BounceGame.SKULL_RSC));
-		
-		default:
 			break;
+		
+		case 3:
+			removeImage(ResourceManager
+					.getImage(BounceGame.SKULL_RSC));
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.COIN_RSC));
+			break;
+		case 4:
+			removeImage(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.DOG_RSC));
+			break;
+			
+		default:
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			break;
+			
 		}
 	}
 	
