@@ -11,8 +11,8 @@
 - **[9]** Add a paddle that can be controlled by the user, add bricks which destroyed when ball hit
 - **[10]** Add a "Lives Remaining" indicator
 - **[11]** Cheat codes to allow user to access all of levels by press "P"
+- **[12]** Add a progression of four levels
 
 ## Open Issues ##
 
 
-- **[12]** Add a progression of three levels
