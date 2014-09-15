@@ -25,17 +25,34 @@ import org.newdawn.slick.state.StateBasedGame;
 class PlayingState extends BasicGameState {
 	int lives;
 	int bounces;
-	
+	int levels =1;
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
+		BounceGame bg = (BounceGame)game;
+		
+		// configuration the Bricks- 17 columns , 4 rows
+		for( int i =0; i<17; i++) {
+			for(int j=0; j< 4; j++) {
+				bg.brick = new Brick(bg.ScreenWidth / 7 + 36*i, bg.ScreenHeight * 1/5 + 32*j);
+				bg.brick.changePic(levels);
+				bg.bricks.add(bg.brick);
+			}
+		}
 	}
+	
+	
 
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
 		lives = 3;
 		bounces= 0;
+		levels =1;
+		
+
 		container.setSoundOn(true);
+		
+		
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
@@ -45,10 +62,12 @@ class PlayingState extends BasicGameState {
 		bg.ball.render(g);
 		bg.paddle.render(g);
 		
+		//bg.brick.render(g);
+		
+		
 		for( Brick bk : bg.bricks)
 			bk.render(g);
 		
-	
 		g.drawString("Lives Remaining: " + lives, 10, 30);
 		for (Bang b : bg.explosions)
 			b.render(g);
@@ -153,6 +172,7 @@ class PlayingState extends BasicGameState {
 		bg.paddle.update(delta);
 		
 		// detect the collision between ball and bricks
+
 		for( int i=0; i< bg.bricks.size(); i++) {
 			Brick bk = bg.bricks.get(i);
 			if(detectCollision_brick(bg.ball.getX() ,
@@ -167,10 +187,11 @@ class PlayingState extends BasicGameState {
 			}	
 		}
 		if (bg.bricks.size() == 0) {
-			//bg.enterState(BounceGame.PLAYINGSTATE);	//restart the game or go to next level
-//			((GameOverState)game.getState(BounceGame.GAMEOVERSTATE)).setUserScore(bounces);
-//			game.enterState(BounceGame.GAMEOVERSTATE);
-			System.out.println("Congratulations! You can go to the next level! ");
+			//System.out.println("Congratulations! You can go to the next level! ");		
+			levels++;		
+			this.init(container, game);
+			//game.enterState(BounceGame.PLAYINGSTATE);
+		
 		}
 
 		// check if there are any finished explosions, if so remove them
@@ -224,7 +245,7 @@ class PlayingState extends BasicGameState {
 	
 		if(Math.abs(delta_x) < (brick_length/2 + radius)
 				&& Math.abs(delta_y) < (brick_height/2 +radius ) ) {			
-			System.out.println("collision with brick!\n");
+			//System.out.println("collision with brick!\n");
 //			System.out.println("delta_x = " + Math.abs(delta_x));
 //			System.out.println("delta_y = " + Math.abs(delta_y));
 			return true ;
