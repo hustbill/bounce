@@ -26,6 +26,7 @@ class PlayingState extends BasicGameState {
 	int lives;
 	int bounces;
 	int levels =1;
+	float radius = 16.0f;  // ball radius 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -111,10 +112,6 @@ class PlayingState extends BasicGameState {
 		
 		bg.ball.render(g);
 		bg.paddle.render(g);
-		
-		//bg.brick.render(g);
-		
-		
 		for( Brick bk : bg.bricks)
 			bk.render(g);
 		
@@ -148,10 +145,11 @@ class PlayingState extends BasicGameState {
 		
 		if (input.isKeyDown(Input.KEY_C)) {			
 			bg.paddle.setX(bg.ball.getX());
-			if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2) 
-				bg.paddle.setY(bg.ball.getY()+30);
-			if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2) 
-				bg.paddle.setY(bg.ball.getY()-30);
+			bg.paddle.setY(bg.ball.getY());
+//			if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2) 
+//				bg.paddle.setY(bg.ball.getY()+30);
+//			if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2) 
+//				bg.paddle.setY(bg.ball.getY()-30);
 
 		}
 		//Cheat codes to allow user to access all of levels by press "P"
@@ -168,28 +166,31 @@ class PlayingState extends BasicGameState {
 		if (input.isKeyDown(Input.KEY_D)) {
 			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.002f, 0f)));
 		}
-		
-		
-		if (input.isKeyDown(Input.KEY_W)) {
-		bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(0f, -.001f)));
-	}
-	if (input.isKeyDown(Input.KEY_S)) {
-		bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(0f, +.001f)));
-	}
-		
+				
 		// bounce the ball...
 		boolean bounced = false;
 		if (bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth
 				|| bg.ball.getCoarseGrainedMinX() < 0) {
 			bg.ball.bounce(90);
+			if (bg.ball.getX() > 0 )
+					bg.ball.setX(bg.ball.getX() - radius);
+			if(bg.ball.getX() < 0)
+					bg.ball.setX(bg.ball.getX() + radius);
+			
 			bounced = true;
 		} else if (bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight
 				|| bg.ball.getCoarseGrainedMinY() < 0) {
+			
 			bg.ball.bounce(0);
+			if (bg.ball.getY() > 0 )
+				bg.ball.setY(bg.ball.getY() - 2* radius);
+			if(bg.ball.getY() < 0)
+				bg.ball.setY(bg.ball.getY() + 2* radius);
 			bounced = true;
 		}
 		
 		if (bounced) {
+			
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
 			System.out.println("bounces= " + bounces);
@@ -205,31 +206,28 @@ class PlayingState extends BasicGameState {
 				|| bg.paddle.getCoarseGrainedMinX() < 0) {
 			bg.paddle.bounce(90);
 			bounced = true;
-		}else if (bg.paddle.getCoarseGrainedMaxY() > bg.ScreenHeight
-				|| bg.paddle.getCoarseGrainedMinY() < 0) {
-			bg.paddle.bounce(0);
-			bounced = true;
 		}
 		// detect the collision between ball and paddle
 		if(detectCollision_paddle(bg.ball.getX() ,
 				bg.ball.getY(), 
 				bg.paddle.getX(), bg.paddle.getY(),
 				bg.paddle.getCoarseGrainedHeight(),				 
-				bg.paddle.getCoarseGrainedWidth(), 	16.0f)) {
+				bg.paddle.getCoarseGrainedWidth(), radius)) {
 			bg.ball.bounce(180);
+			//bg.ball.setX(bg.paddle.getX() + bg.paddle.getCoarseGrainedHeight()/2);
+			bg.ball.setY(bg.paddle.getY()- radius *4/3);
 			bounced = true;
 		}
 		bg.paddle.update(delta);
 		
 		// detect the collision between ball and bricks
-
 		for( int i=0; i< bg.bricks.size(); i++) {
 			Brick bk = bg.bricks.get(i);
 			if(detectCollision_brick(bg.ball.getX() ,
 					bg.ball.getY(), 
 					bk.getX(), bk.getY(),
 					bk.getCoarseGrainedHeight(),				 
-					bk.getCoarseGrainedWidth(), 16.0f)) {
+					bk.getCoarseGrainedWidth(), radius)) {
 				bg.ball.bounce(180);
 				bounced = true;
 				bk.update(delta); //destroy the brick				
