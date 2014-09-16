@@ -65,11 +65,11 @@ class GameOverState extends BasicGameState {
 			game.enterState(BounceGame.STARTUPSTATE, new EmptyTransition(), new HorizontalSplitTransition() );
 
 		// check if there are any finished explosions, if so remove them
-//		for (Iterator<Bang> i = ((BounceGame)game).explosions.iterator(); i.hasNext();) {
-//			if (!i.next().isActive()) {
-//				i.remove();
-//			}
-//		}
+		for (Iterator<Bang> i = ((BounceGame)game).explosions.iterator(); i.hasNext();) {
+			if (!i.next().isActive()) {
+				i.remove();
+			}
+		}
 
 	}
 

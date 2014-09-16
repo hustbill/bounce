@@ -75,11 +75,11 @@ class StartUpState extends BasicGameState {
 		bg.ball.update(delta);
 
 		// check if there are any finished explosions, if so remove them
-//		for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
-//			if (!i.next().isActive()) {
-//				i.remove();
-//			}
-//		}
+		for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
+			if (!i.next().isActive()) {
+				i.remove();
+			}
+		}
 
 	}
 

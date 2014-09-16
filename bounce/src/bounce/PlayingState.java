@@ -26,6 +26,7 @@ class PlayingState extends BasicGameState {
 	int lives;
 	int bounces;
 	int levels =1;
+	int scores =100;
 	float radius = 16.0f;  // ball radius 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -98,12 +99,8 @@ class PlayingState extends BasicGameState {
 	public void enter(GameContainer container, StateBasedGame game) {
 		lives = 3;
 		bounces= 0;
-		levels =1;
-		
-
+		levels =1;	
 		container.setSoundOn(true);
-		
-		
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
@@ -116,6 +113,8 @@ class PlayingState extends BasicGameState {
 			bk.render(g);
 		
 		g.drawString("Lives Remaining: " + lives, 10, 30);
+		g.drawString("Scores: "+ scores,20, bg.ScreenHeight-25 );
+		g.drawString("Levels: "+ levels,bg.ScreenWidth-90, bg.ScreenHeight-25 );
 		for (Bang b : bg.explosions)
 			b.render(g);
 
@@ -129,23 +128,23 @@ class PlayingState extends BasicGameState {
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame)game;
 		
-//		if (input.isKeyDown(Input.KEY_W)) {
-//			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(0f, -.001f)));
-//		}
-//		if (input.isKeyDown(Input.KEY_S)) {
-//			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(0f, +.001f)));
-//		}
-//		if (input.isKeyDown(Input.KEY_A)) {
-//			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(-.001f, 0)));
-//		}
-//		if (input.isKeyDown(Input.KEY_D)) {
-//			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(+.001f, 0f)));
-//		}
+		if (input.isKeyDown(Input.KEY_W)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(0f, -.001f)));
+		}
+		if (input.isKeyDown(Input.KEY_S)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(0f, +.001f)));
+		}
+		if (input.isKeyDown(Input.KEY_A)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(-.001f, 0)));
+		}
+		if (input.isKeyDown(Input.KEY_D)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(new Vector(+.001f, 0f)));
+		}
 		
 		
 		if (input.isKeyDown(Input.KEY_C)) {			
 			bg.paddle.setX(bg.ball.getX());
-			bg.paddle.setY(bg.ball.getY());
+			//bg.paddle.setY(bg.ball.getY());
 //			if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2) 
 //				bg.paddle.setY(bg.ball.getY()+30);
 //			if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2) 
@@ -160,11 +159,11 @@ class PlayingState extends BasicGameState {
 				bg.ball.setX(bk.getX());				
 			}
 		}
-		if (input.isKeyDown(Input.KEY_A)) {
-			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(-.002f, 0)));
+		if (input.isKeyDown(Input.KEY_H)) {
+			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(-.005f, 0)));
 		}
-		if (input.isKeyDown(Input.KEY_D)) {
-			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.002f, 0f)));
+		if (input.isKeyDown(Input.KEY_L)) {
+			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.005f, 0f)));
 		}
 		
 		if (input.isKeyDown(Input.KEY_0)) {
@@ -201,8 +200,7 @@ class PlayingState extends BasicGameState {
 			bounced = true;
 		}
 		
-		if (bounced) {
-			
+		if (bounced) {			
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
 			System.out.println("bounces= " + bounces);
@@ -242,16 +240,19 @@ class PlayingState extends BasicGameState {
 					bk.getCoarseGrainedWidth(), radius)) {
 				bg.ball.bounce(180);
 				bounced = true;		
-				if(levels==1)
+				if(levels==1) {
 				  bg.bricks.remove(bk); //remove brick from ArrayList
+				  scores++;
+				}
 				else{
 					bk.update(levels); //destroy the brick
 					bk.hit_times++;
 					System.out.println("levels= " + levels);
 				}
-				if(bk.hit_times ==2)
+				if(bk.hit_times ==2){
 					 bg.bricks.remove(bk);
-				
+					scores+=2;
+				}
 			}	
 		}
 		if (bg.bricks.size() == 0) {
