@@ -1,7 +1,12 @@
 package bounce;
 
+import java.io.File;
 import java.util.Iterator;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import jig.ResourceManager;
 import jig.Vector;
 
 import org.newdawn.slick.GameContainer;
@@ -10,6 +15,10 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  * This state is active when the Game is being played. In this state, sound is
@@ -25,7 +34,7 @@ class PlayingState extends BasicGameState {
 	int lives;
 	int bounces;
 	int levels = 1;
-	int scores = 100;
+	int scores = 0;
 	float radius = 16.0f; // ball radius
 
 	@Override
@@ -43,9 +52,9 @@ class PlayingState extends BasicGameState {
 		switch (levels) {
 		case 1:
 			for (int i = 0; i < 17; i++) {
-				for (int j =0; j < 4; j++) {
-					bg.brick = new Brick(bg.ScreenWidth /7 + 36 * i,
-							bg.ScreenHeight * 1 /7 + 32 * j);
+				for (int j = 0; j < 4; j++) {
+					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+							bg.ScreenHeight * 1 / 7 + 32 * j);
 					bg.brick.changePic(levels);
 					bg.bricks.add(bg.brick);
 
@@ -58,21 +67,21 @@ class PlayingState extends BasicGameState {
 			for (int i = 0; i < 8; i++) {
 				for (int j = 8 - i; j < 8; j++) {
 					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-							bg.ScreenHeight * 1 /10 + 32 * j);
+							bg.ScreenHeight * 1 / 10 + 32 * j);
 					bg.brick.changePic(levels);
 					bg.bricks.add(bg.brick);
 
 				}
 
-			}			
+			}
 			for (int i = 8; i > 0; i--) {
-				for (int j =  i; j < 8 ; j++) {
+				for (int j = i; j < 8; j++) {
 					bg.brick = new Brick(bg.ScreenWidth / 2 + 36 * i,
 							bg.ScreenHeight * 1 / 10 + 32 * j);
 					bg.brick.changePic(levels);
 					bg.bricks.add(bg.brick);
 				}
-			}		
+			}
 			break;
 
 		case 3:
@@ -111,18 +120,18 @@ class PlayingState extends BasicGameState {
 			}
 			break;
 		default:
-//			for (int i = 0; i < 8; i++) {
-//				for (int j = 7 - i; j < 8 + i; j++) {
-//					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-//							bg.ScreenHeight * 1 / 10 + 32 * j);
-//					bg.brick.changePic(levels);
-//					bg.bricks.add(bg.brick);
-//				}
-//			}
+			// for (int i = 0; i < 8; i++) {
+			// for (int j = 7 - i; j < 8 + i; j++) {
+			// bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+			// bg.ScreenHeight * 1 / 10 + 32 * j);
+			// bg.brick.changePic(levels);
+			// bg.bricks.add(bg.brick);
+			// }
+			// }
 			for (int i = 0; i < 17; i++) {
-				for (int j =0; j < 4; j++) {
-					bg.brick = new Brick(bg.ScreenWidth /7 + 36 * i,
-							bg.ScreenHeight * 1 /7 + 32 * j);
+				for (int j = 0; j < 4; j++) {
+					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+							bg.ScreenHeight * 1 / 7 + 32 * j);
 					bg.brick.changePic(levels);
 					bg.bricks.add(bg.brick);
 
@@ -143,6 +152,47 @@ class PlayingState extends BasicGameState {
 		container.setSoundOn(true);
 	}
 
+	
+	public static String[][] readXml(String filename) {
+		String[][] data = new String[10][5];
+		final String dir = System.getProperty("user.dir");
+		//System.out.println("current dir = " + dir);
+
+		try {
+			File file = new File(dir + "//src//bounce//resource//" + filename); //testCases.xml
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document doc = db.parse(file);
+			doc.getDocumentElement().normalize();
+			//System.out.println("Root element "+ doc.getDocumentElement().getNodeName());
+			NodeList nodeLst = doc.getElementsByTagName("game");
+			//System.out.println("Information of all games" + nodeLst.getLength());
+
+			for (int s = 0; s < nodeLst.getLength(); s++) {
+				Node fstNode = nodeLst.item(s);
+				if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element element = (Element) fstNode;
+					data[s][0] = (getValue("player", element));
+					data[s][1] = (getValue("score", element));
+					data[s][2] = (getValue("date", element));
+					data[s][3] = (getValue("resource", element));
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+	
+	private static String getValue(String tag, Element element) {
+		NodeList nodes = element.getElementsByTagName(tag).item(0)
+				.getChildNodes();
+		Node node = (Node) nodes.item(0);
+		return node.getNodeValue();
+	}
+	
+	
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
@@ -153,6 +203,12 @@ class PlayingState extends BasicGameState {
 		for (Brick bk : bg.bricks)
 			bk.render(g);
 
+		
+		
+		
+		
+		
+		
 		g.drawString("Lives Remaining: " + lives, 10, 30);
 		g.drawString("Scores: " + scores, 20, bg.ScreenHeight - 25);
 		g.drawString("Levels: " + levels, bg.ScreenWidth - 90,
@@ -224,6 +280,9 @@ class PlayingState extends BasicGameState {
 			bg.ball.scale(1.5f);
 
 		}
+		
+		if (input.isKeyDown(Input.KEY_HOME))
+			bg.enterState(BounceGame.CONFIGSTATE);	
 
 		// bounce the ball...
 		boolean bounced = false;
@@ -302,27 +361,30 @@ class PlayingState extends BasicGameState {
 		if (bg.bricks.size() == 0) {
 			// System.out.println("Congratulations! You can go to the next level! ");
 			levels++;
-			if (levels <= 4) {
+			if (levels <= 4) {					
 				this.init(container, game);
 			} else {
 				try {
-					Thread.sleep(500);
+					Thread.sleep(1500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				((GameOverState) game.getState(BounceGame.GAMEOVERSTATE))
-						.setUserScore(lives);
-				game.enterState(BounceGame.GAMEOVERSTATE);
+				
+				System.out.println("current levels= " + levels);
+			 	bg.enterState(BounceGame.CONFIGSTATE);
+			 	levels = 1;  //reset levels to initial level
+			 	
 			}
+		
 		}
 
 		// check if there are any finished explosions, if so remove them
-		// for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
-		// if (!i.next().isActive()) {
-		// i.remove();
-		// }
-		// }
+		for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
+			if (!i.next().isActive()) {
+				i.remove();
+			}
+		}
 
 		if (lives == 0) {
 			((GameOverState) game.getState(BounceGame.GAMEOVERSTATE))

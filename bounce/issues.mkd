@@ -13,7 +13,8 @@
 - **[11]** Cheat codes to allow user to access all of levels by press "P"
 - **[12]** Add a progression of four levels
 - **[13]** Corrected collision response for the ball, so it doesn't get caught in walls or in bricks.
+- **[14]** Add a customized splash screen with the player's name
 
 ## Open Issues ##
-- **[14]** Add a customized splash screen with the player's name
+
 
