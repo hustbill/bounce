@@ -16,14 +16,16 @@ public class Paddle extends Entity{
 	
 	private Vector velocity;
 	private int countdown;
+	public float angle;
 
-	public Paddle(final float x, final float y, final float vx, float vy) {
+	public Paddle(final float x, final float y, final float vx, float vy, float angle_degree) {
 		super(x, y);
 		addImageWithBoundingBox(ResourceManager
 				.getImage(BounceGame.PADDLE_RSC));
 		vy=0.0f;
 		velocity = new Vector(vx, vy);
 		countdown = 0;
+		angle =angle_degree;
 	}
 
 	public void setVelocity(final Vector v) {
@@ -34,6 +36,13 @@ public class Paddle extends Entity{
 		return velocity;
 	}
 	
+	public void setAngle(final float angle_num){
+		angle = angle_num;
+	}
+	
+	public float getAngle() {
+		return angle;
+	}
 	
 	/**
 	 * Bounce the ball off a surface. This simple implementation, combined

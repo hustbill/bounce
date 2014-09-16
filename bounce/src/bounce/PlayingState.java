@@ -166,6 +166,18 @@ class PlayingState extends BasicGameState {
 		if (input.isKeyDown(Input.KEY_D)) {
 			bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.002f, 0f)));
 		}
+		
+		if (input.isKeyDown(Input.KEY_0)) {
+			//bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.002f, 0f)));
+		    bg.ball.scale(0.5f);
+		}
+		
+		if (input.isKeyDown(Input.KEY_1)) {
+			//bg.paddle.setVelocity(bg.paddle.getVelocity().add(new Vector(+.002f, 0f)));
+		    bg.ball.scale(1.5f);
+		    
+		}
+		
 				
 		// bounce the ball...
 		boolean bounced = false;
@@ -229,9 +241,17 @@ class PlayingState extends BasicGameState {
 					bk.getCoarseGrainedHeight(),				 
 					bk.getCoarseGrainedWidth(), radius)) {
 				bg.ball.bounce(180);
-				bounced = true;
-				bk.update(delta); //destroy the brick				
-				bg.bricks.remove(bk); //remove brick from ArrayList
+				bounced = true;		
+				if(levels==1)
+				  bg.bricks.remove(bk); //remove brick from ArrayList
+				else{
+					bk.update(levels); //destroy the brick
+					bk.hit_times++;
+					System.out.println("levels= " + levels);
+				}
+				if(bk.hit_times ==2)
+					 bg.bricks.remove(bk);
+				
 			}	
 		}
 		if (bg.bricks.size() == 0) {
@@ -252,11 +272,11 @@ class PlayingState extends BasicGameState {
 		}
 
 		// check if there are any finished explosions, if so remove them
-		for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
-			if (!i.next().isActive()) {
-				i.remove();
-			}
-		}
+//		for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
+//			if (!i.next().isActive()) {
+//				i.remove();
+//			}
+//		}
 
 		if (lives == 0) {
 			((GameOverState)game.getState(BounceGame.GAMEOVERSTATE)).setUserScore(lives);
