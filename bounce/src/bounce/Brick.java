@@ -12,6 +12,7 @@ import jig.Vector;
  * 
  */
 public class Brick extends Entity {
+	public int hit_times=0;
 	
 	public Brick( float x,  float y) {
 		super(x, y);
@@ -38,31 +39,26 @@ public class Brick extends Entity {
 
 	public void changePic(int levels) {
 		switch(levels) {
-		case 1:
-			addImageWithBoundingBox(ResourceManager
-					.getImage(BounceGame.BRICK_RSC));
-			break;
 		case 2:
 			removeImage(ResourceManager
 					.getImage(BounceGame.BRICK_RSC));
+			//http://icons.iconarchive.com/icons/pino/looney/32/Porky-Pig-icon.png
 			addImageWithBoundingBox(ResourceManager
-					.getImage(BounceGame.SKULL_RSC));
+					.getImage(BounceGame.PIG_RSC));
 			break;
 		
 		case 3:
 			removeImage(ResourceManager
 					.getImage(BounceGame.BRICK_RSC));
-			removeImage(ResourceManager
-					.getImage(BounceGame.SKULL_RSC));
 			addImageWithBoundingBox(ResourceManager
-					.getImage(BounceGame.COIN_RSC));
+					.getImage(BounceGame.FISH_RSC));
 			break;
 		case 4:
 			removeImage(ResourceManager
 					.getImage(BounceGame.BRICK_RSC));
-			//http://icons.iconarchive.com/icons/pino/looney/32/Porky-Pig-icon.png
+			//http://img1.wikia.nocookie.net/__cb20110116163235/zombiefarm/images/a/a2/Zombie_Quest.png
 			addImageWithBoundingBox(ResourceManager
-					.getImage(BounceGame.DOG_RSC));
+					.getImage(BounceGame.ZOMBIE_RSC));		
 			break;
 			
 		default:
@@ -79,10 +75,27 @@ public class Brick extends Entity {
 	 * @param delta
 	 *            the number of milliseconds since the last update
 	 */
-	public void update(final int delta) {
-		removeImage(ResourceManager
-				.getImage(BounceGame.BRICK_RSC));		
+	//public void update(final int delta, int levels) {
+	public void update(int levels) {
 		
+		switch(levels) {
+			case 2: //for first hit, just change the image to skull
+				removeImage(ResourceManager
+						.getImage(BounceGame.ZOMBIE_RSC));
+				addImageWithBoundingBox(ResourceManager
+						.getImage(BounceGame.SKULL_RSC)); //for second hit, the bricks were destroyed
+				
+				break;
+			case 3: 
+				removeImage(ResourceManager
+						.getImage(BounceGame.COIN_RSC));
+				addImageWithBoundingBox(ResourceManager
+						.getImage(BounceGame.SKULL_RSC)); //for second hit, the bricks were destroyed
+			default:
+				addImageWithBoundingBox(ResourceManager
+						.getImage(BounceGame.SKULL_RSC));	
+			break;
+		}
 	}
 	
 

@@ -45,14 +45,19 @@ public class BounceGame extends StateBasedGame {
 	public static final int STARTUPSTATE = 0;
 	public static final int PLAYINGSTATE = 1;
 	public static final int GAMEOVERSTATE = 2;
+	public static final int CONFIGSTATE =3;
 	
-	public static final String DOG_RSC = "bounce/resource/dog.png";
-	public static final String COIN_RSC = "bounce/resource/coin.png";	
+	public static final String BRICK_RSC = "bounce/resource/brick.png";
+	public static final String PIG_RSC = "bounce/resource/pig.png";
+	public static final String FISH_RSC = "bounce/resource/fish.png";
+	public static final String ZOMBIE_RSC = "bounce/resource/zombie.png";
 	public static final String SKULL_RSC = "bounce/resource/skull.png";	
-	public static final String BRICK_RSC = "bounce/resource/brick.png";	
+	public static final String COIN_RSC = "bounce/resource/coin.png";
+	
 	public static final String PADDLE_RSC = "bounce/resource/paddle.png";
 	public static final String BALL_BALLIMG_RSC = "bounce/resource/ball.png";	
 	public static final String BALL_BROKENIMG_RSC = "bounce/resource/brokenball.png";
+	public static final String YOUWIN_BANNER_RSC = "bounce/resource/youwin.png";
 	public static final String GAMEOVER_BANNER_RSC = "bounce/resource/gameover.png";
 	public static final String STARTUP_BANNER_RSC = "bounce/resource/PressSpace.png";
 	public static final String BANG_EXPLOSIONIMG_RSC = "bounce/resource/explosion.png";
@@ -96,7 +101,7 @@ public class BounceGame extends StateBasedGame {
 		addState(new StartUpState());
 		addState(new GameOverState());
 		addState(new PlayingState());
-		
+		addState(new ConfigState());
 		// the sound resource takes a particularly long time to load,
 		// we preload it here to (1) reduce latency when we first play it
 		// and (2) because loading it will load the audio libraries and
@@ -108,16 +113,21 @@ public class BounceGame extends StateBasedGame {
 		ResourceManager.loadImage(PADDLE_RSC);
 		ResourceManager.loadImage(BRICK_RSC);	
 		ResourceManager.loadImage(COIN_RSC);
-		ResourceManager.loadImage(DOG_RSC);
+		ResourceManager.loadImage(ZOMBIE_RSC);
+		ResourceManager.loadImage(PIG_RSC);
+		ResourceManager.loadImage(FISH_RSC);
 		ResourceManager.loadImage(SKULL_RSC);
 		ResourceManager.loadImage(BALL_BALLIMG_RSC);
 		ResourceManager.loadImage(BALL_BROKENIMG_RSC);
 		ResourceManager.loadImage(GAMEOVER_BANNER_RSC);
 		ResourceManager.loadImage(STARTUP_BANNER_RSC);
+		ResourceManager.loadImage(YOUWIN_BANNER_RSC);
 		ResourceManager.loadImage(BANG_EXPLOSIONIMG_RSC);
 		
+		
 		ball = new Ball(ScreenWidth / 2, ScreenHeight / 2, .1f, .2f);
-		paddle = new Paddle(ScreenWidth / 2, ScreenHeight * 19/20  , .1f, .0f);
+		paddle = new Paddle(ScreenWidth / 2, ScreenHeight * 19/20  , .2f, .0f, 90.0f);
+		
 		//brick = new Brick(ScreenWidth / 7 , ScreenHeight * 1/5 );
 
 	}
