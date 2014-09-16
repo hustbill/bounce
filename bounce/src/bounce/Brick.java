@@ -51,6 +51,8 @@ public class Brick extends Entity {
 		
 		case 3:
 			removeImage(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			removeImage(ResourceManager
 					.getImage(BounceGame.SKULL_RSC));
 			addImageWithBoundingBox(ResourceManager
 					.getImage(BounceGame.COIN_RSC));
@@ -58,6 +60,7 @@ public class Brick extends Entity {
 		case 4:
 			removeImage(ResourceManager
 					.getImage(BounceGame.BRICK_RSC));
+			//http://icons.iconarchive.com/icons/pino/looney/32/Porky-Pig-icon.png
 			addImageWithBoundingBox(ResourceManager
 					.getImage(BounceGame.DOG_RSC));
 			break;
