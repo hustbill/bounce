@@ -60,14 +60,14 @@ public class Paddle extends Entity{
 			bg.paddle.scale(.9f);
 			break;			
 		case 3:
-			bg.paddle.scale(.8f);
+			bg.paddle.scale(.85f);
 			break;
 		case 4:
-			bg.paddle.scale(.7f);
+			bg.paddle.scale(.8f);
 			break;
 
 		default:
-			bg.paddle.scale(.8f);
+			bg.paddle.scale(.85f);
 			break;
 		}
 	}

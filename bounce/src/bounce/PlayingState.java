@@ -117,12 +117,36 @@ class PlayingState extends BasicGameState {
 					new Vector(+.001f, 0f)));
 		}
 
+		if (input.isKeyDown(Input.KEY_N)) {
+//			bg.ball.setX( 545.4f);
+//			bg.ball.setY(-8.2f);
+			bg.ball.setX(400.0f);
+			bg.ball.setY(580.0f);
+		}
+		
+		// Press C to save your ball
 		if (input.isKeyDown(Input.KEY_C)) {
-			bg.paddle.setX(bg.ball.getX());		
+			//check point 1
+//			bg.ball.setX( 545.4f);
+//			bg.ball.setY(-8.2f);
+			
+			// check point 2
+//			bg.ball.setX(-10.0f);
+//			bg.ball.setY(288.2f);
+			
+			// check point 3
+//			bg.ball.setX(378.0f);
+//			bg.ball.setY(11.0f);
+			
+			// check point 4
+//			bg.ball.setX(423.0f);
+//			bg.ball.setY(613.0f);			
+	
+			bg.paddle.setX(bg.ball.getX());	
 			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
-			 bg.paddle.setY(bg.ball.getY()+30);
+			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
 			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
-			 bg.paddle.setY(bg.ball.getY()-30);
+			 bg.paddle.setY(bg.ball.getY()- radius*2);
 
 		}
 		// Cheat codes to allow user to access all of levels by press "P"
@@ -169,26 +193,38 @@ class PlayingState extends BasicGameState {
 
 		// bounce the ball...
 		boolean bounced = false;
-		if (bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth
-				|| bg.ball.getCoarseGrainedMinX() < 0) {
+//		if (bg.ball.getCoarseGrainedMaxX() > (bg.ScreenWidth -radius)
+//				|| bg.ball.getCoarseGrainedMinX() < radius) {
+//			bg.ball.bounce(90);		
+//			System.out.println("Object enter into target area -0");
+//			bounced = true;
+//		} else if (bg.ball.getCoarseGrainedMaxY() > (bg.ScreenHeight - radius)
+//				|| bg.ball.getCoarseGrainedMinY() < radius) {
+//			bg.ball.setVelocity(new Vector( bg.ball.getVelocity().getX(),
+//					-bg.ball.getVelocity().getY())); // );
+//			System.out.println("Object enter into target area -1");
+//			bg.ball.bounce(0);
+//			bounced = true;
+//		}
+		int bounces_x_count =0;
+		int bounces_y_count =0;
+		System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
+		System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
+		System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
+		if ((bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth && bg.ball.getVelocity().getX()>0)		
+				|| ( bg.ball.getCoarseGrainedMinX() < 0 && bg.ball.getVelocity().getX()<0)) {
 			bg.ball.bounce(90);
-			if (bg.ball.getX() > 0)
-				bg.ball.setX(bg.ball.getX() - radius);
-			if (bg.ball.getX() < 0)
-				bg.ball.setX(bg.ball.getX() + radius);
-
+			bounces_x_count++;		
 			bounced = true;
-		} else if (bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight
-				|| bg.ball.getCoarseGrainedMinY() < 0) {
-
+		} else if ((bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0)				
+				|| (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0)) {
+			System.out.println("Before ball.vx= " + bg.ball.getVelocity().getX());
+			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
 			bg.ball.bounce(0);
-			if (bg.ball.getY() > 0)
-				bg.ball.setY(bg.ball.getY() - 2 * radius);
-			if (bg.ball.getY() < 0)
-				bg.ball.setY(bg.ball.getY() + 2 * radius);
+			System.out.println("After ball.vx= " + bg.ball.getVelocity().getX());
+			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
 			bounced = true;
 		}
-
 		if (bounced) {
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
@@ -250,6 +286,12 @@ class PlayingState extends BasicGameState {
 		}
 
 		if (lives == 0) {
+			System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
+			System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
+			System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
+			System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
+			System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
+			
 			((GameOverState) game.getState(BounceGame.GAMEOVERSTATE))
 					.setUserScore(lives);
 			game.enterState(BounceGame.GAMEOVERSTATE);
