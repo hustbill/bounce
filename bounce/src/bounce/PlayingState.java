@@ -31,7 +31,7 @@ import org.w3c.dom.NodeList;
  * Transitions To GameOverState
  */
 class PlayingState extends BasicGameState {
-	int lives;
+	int lives =3;
 	int bounces;
 	int levels = 1;
 	int scores = 0;
@@ -82,6 +82,7 @@ class PlayingState extends BasicGameState {
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame) game;
 
+		//If all bricks a
 		if (bg.bricks.size() == 0) {
 			levels++;
 			if (levels <= 4) {

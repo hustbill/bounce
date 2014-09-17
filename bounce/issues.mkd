@@ -17,4 +17,5 @@
 - **[15]** Fix the bug- ball get caught in the walls.
 
 ## Open Issues ##
-- **[6]** Persistent high score tracking in XML file
+- **[16]** Modify lives change model, ball go to bottom, lost one life
+- **[17]** Persistent high score tracking in XML file
