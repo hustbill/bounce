@@ -15,7 +15,7 @@
 - **[13]** Corrected collision response for the ball, so it doesn't get caught in walls or in bricks.
 - **[14]** Add a customized splash screen with the player's name
 - **[15]** Fix the bug- ball get caught in the walls.
+- **[16]** Modify lives change model, ball go to bottom, lost one life
 
 ## Open Issues ##
-- **[16]** Modify lives change model, ball go to bottom, lost one life
 - **[17]** Persistent high score tracking in XML file
