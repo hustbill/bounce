@@ -47,10 +47,12 @@ public class Brick extends Entity {
 		System.out.println("levels= " + levels);
 		switch (levels) {
 		case 1:
-			for (int i = 0; i < 17; i++) {
+			System.out.println("configBricks, bg.bricks.size() =" + bg.bricks.size());
+			for (int i = 0; i < 17; i+=2) {
 				for (int j = 0; j < 4; j++) {
 					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-							bg.ScreenHeight * 1 / 7 + 32 * j);				
+							bg.ScreenHeight * 1 / 7 + 32 * j);
+					
 					bg.bricks.add(bg.brick);
 
 				}

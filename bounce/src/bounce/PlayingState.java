@@ -42,10 +42,13 @@ class PlayingState extends BasicGameState {
 			throws SlickException {
 		BounceGame bg = (BounceGame) game;
 		if (levels <= 4) {
+			lives =3; //reset the lives to 3 for each level
 			bg.brick.configBricks(game, levels);
 			bg.paddle.configPaddle(game, levels);
 			bg.ball.configBall(game, levels);
 		}
+		
+		System.out.println("init playingState, initial lives=" + lives);
 	}
 
 	@Override
@@ -54,6 +57,7 @@ class PlayingState extends BasicGameState {
 		bounces = 0;
 		levels = 1;
 		container.setSoundOn(true);
+		
 	}
 
 	@Override
@@ -81,7 +85,7 @@ class PlayingState extends BasicGameState {
 
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame) game;
-
+		System.out.println("update playingState, update lives=" + lives);
 		//If all bricks are destroyed, go to next level or enter ConfigState to check score
 		if (bg.bricks.size() == 0) {
 			levels++;
@@ -99,7 +103,7 @@ class PlayingState extends BasicGameState {
 				bg.enterState(BounceGame.CONFIGSTATE);//enter ConfigState to check score			
 			}
 		}
-		 bg.ball.controlBall(input,  bg); 
+		bg.ball.controlBall(input,  bg); //control the velocity of ball by press Keys 
 		
 		if (input.isKeyDown(Input.KEY_HOME))
 			bg.enterState(BounceGame.CONFIGSTATE);
@@ -129,16 +133,33 @@ class PlayingState extends BasicGameState {
 //		}
 		
 		else if (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0) {
-			System.out.println("Before ball.vx= " + bg.ball.getVelocity().getX());
 			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
 			bg.ball.bounce(0);
-			System.out.println("After ball.vx= " + bg.ball.getVelocity().getX());
 			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
 			bounced = true;
 		}
-		if(bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0) {
+		System.out.println("ball go to the bottom, before lives=" + lives);
+		if(bg.ball.getY() > bg.ScreenHeight + radius && bg.ball.getVelocity().getY()>0) {
 			System.out.println("ball go to the bottom, orginal lives=" + lives);
 			lives--;
+			bg.paddle.setX(400.0f);
+			bg.paddle.setY(580.0f);
+			bg.paddle.setVelocity(new Vector(.0f, 0.0f));
+			try {
+		
+				Thread.sleep(1000);
+		
+			    //bounced =true;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			bg.ball.setX(400.0f);
+			bg.ball.setY(550.0f);
+
+			bg.paddle.setVelocity(new Vector(.1f, 0.0f));
+			bg.ball.setVelocity(new Vector(.15f, -0.15f));
+			
 			System.out.println("ball go to the bottom, updated lives=" + lives);
 			// add music or audio here to notify player who lost one life
 			// ball was disappear for two seconds
@@ -147,11 +168,7 @@ class PlayingState extends BasicGameState {
 		if (bounced) {
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
-			System.out.println("bounces= " + bounces);
-			if (bounces == 10 || bounces == 20 || bounces == 30) {
-				lives--;
-				System.out.println("lives= " + lives);
-			}
+			System.out.println("bounces= " + bounces);			
 		}
 		bg.ball.update(delta);
 

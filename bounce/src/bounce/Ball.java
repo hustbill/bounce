@@ -102,13 +102,20 @@ import jig.Vector;
 			}
 		
 		}
-		if (input.isKeyDown(Input.KEY_H)) {
+		if (input.isKeyDown(Input.KEY_UP)) {
 			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
-					new Vector(-.005f, 0)));
+					new Vector(.01f, 0)));
 		}
-		if (input.isKeyDown(Input.KEY_L)) {
+		if (input.isKeyDown(Input.KEY_DOWN)) {
 			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
-					new Vector(+.005f, 0f)));
+					new Vector(-.01f, 0f)));
+		}
+		
+		if (input.isKeyDown(Input.KEY_LEFT)) {
+			bg.paddle.setVelocity(new Vector(-.15f, 0));
+		}
+		if (input.isKeyDown(Input.KEY_RIGHT)) {
+			bg.paddle.setVelocity(new Vector(.15f, 0f));
 		}
 
 		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
