@@ -1,5 +1,8 @@
 package bounce;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import jig.Entity;
@@ -34,7 +37,106 @@ import jig.Vector;
 	}
 
 	/*
-	 *  Configure the ball: velocity, shape, image
+	 *  Control the velocity of ball in playingState 
+	 */
+	
+	public void controlBall(Input input, BounceGame bg) 
+			throws SlickException{
+		
+		if (input.isKeyDown(Input.KEY_W)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(
+					new Vector(0f, -.001f)));
+		}
+		if (input.isKeyDown(Input.KEY_S)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(
+					new Vector(0f, +.001f)));
+		}
+		if (input.isKeyDown(Input.KEY_A)) {
+			bg.ball.setVelocity(bg.ball.getVelocity()
+					.add(new Vector(-.001f, 0)));
+		}
+		if (input.isKeyDown(Input.KEY_D)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(
+					new Vector(+.001f, 0f)));
+		}
+
+		if (input.isKeyDown(Input.KEY_N)) {
+//			bg.ball.setX( 545.4f);
+//			bg.ball.setY(-8.2f);
+			bg.ball.setX(400.0f);
+			bg.ball.setY(580.0f);
+		}
+		
+		// Press C to save your ball
+		if (input.isKeyDown(Input.KEY_C)) {
+			//check point 1
+//			bg.ball.setX( 545.4f);
+//			bg.ball.setY(-8.2f);
+			
+			// check point 2
+//			bg.ball.setX(-10.0f);
+//			bg.ball.setY(288.2f);
+			
+			// check point 3
+//			bg.ball.setX(378.0f);
+//			bg.ball.setY(11.0f);
+			
+			// check point 4
+//			bg.ball.setX(423.0f);
+//			bg.ball.setY(613.0f);			
+	
+			bg.paddle.setX(bg.ball.getX());	
+			bg.paddle.setY(bg.ball.getY());
+//			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
+//			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
+//			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
+//			 bg.paddle.setY(bg.ball.getY()- radius*2);
+
+		}
+		// Cheat codes to allow user to access all of levels by press "P"
+		if (input.isKeyDown(Input.KEY_P)) {
+			for (int i = 0; i < bg.bricks.size(); i++) {
+				Brick bk = bg.bricks.get(i);
+				bg.ball.setY(bk.getY());
+				bg.ball.setX(bk.getX());
+			}
+		
+		}
+		if (input.isKeyDown(Input.KEY_H)) {
+			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
+					new Vector(-.005f, 0)));
+		}
+		if (input.isKeyDown(Input.KEY_L)) {
+			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
+					new Vector(+.005f, 0f)));
+		}
+
+		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+			bg.ball.bounce(90);
+		}
+
+		if (input.isMousePressed(Input.MOUSE_RIGHT_BUTTON)) {
+			bg.ball.bounce(180);
+
+		}
+		if (input.isKeyDown(Input.KEY_ADD)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(
+					new Vector(+.001f, 0f)));
+
+		}
+		if (input.isKeyDown(Input.KEY_0)) {
+			bg.ball.scale(0.5f);
+		}
+
+		if (input.isKeyDown(Input.KEY_1)) {
+			bg.ball.scale(1.5f);
+
+		}
+
+	}
+	
+	/*
+	 *  Adjust the velocity, shape, image of ball when levels changed
 	 */
 	public void configBall(StateBasedGame game, int levels) {
 		BounceGame bg = (BounceGame) game;

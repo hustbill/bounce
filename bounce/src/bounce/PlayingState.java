@@ -82,7 +82,7 @@ class PlayingState extends BasicGameState {
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame) game;
 
-		//If all bricks a
+		//If all bricks are destroyed, go to next level or enter ConfigState to check score
 		if (bg.bricks.size() == 0) {
 			levels++;
 			if (levels <= 4) {
@@ -96,120 +96,16 @@ class PlayingState extends BasicGameState {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				bg.enterState(BounceGame.CONFIGSTATE);
-				levels = 1; // reset levels to initial level
+				bg.enterState(BounceGame.CONFIGSTATE);//enter ConfigState to check score			
 			}
 		}
-
-		if (input.isKeyDown(Input.KEY_W)) {
-			bg.ball.setVelocity(bg.ball.getVelocity().add(
-					new Vector(0f, -.001f)));
-		}
-		if (input.isKeyDown(Input.KEY_S)) {
-			bg.ball.setVelocity(bg.ball.getVelocity().add(
-					new Vector(0f, +.001f)));
-		}
-		if (input.isKeyDown(Input.KEY_A)) {
-			bg.ball.setVelocity(bg.ball.getVelocity()
-					.add(new Vector(-.001f, 0)));
-		}
-		if (input.isKeyDown(Input.KEY_D)) {
-			bg.ball.setVelocity(bg.ball.getVelocity().add(
-					new Vector(+.001f, 0f)));
-		}
-
-		if (input.isKeyDown(Input.KEY_N)) {
-//			bg.ball.setX( 545.4f);
-//			bg.ball.setY(-8.2f);
-			bg.ball.setX(400.0f);
-			bg.ball.setY(580.0f);
-		}
+		 bg.ball.controlBall(input,  bg); 
 		
-		// Press C to save your ball
-		if (input.isKeyDown(Input.KEY_C)) {
-			//check point 1
-//			bg.ball.setX( 545.4f);
-//			bg.ball.setY(-8.2f);
-			
-			// check point 2
-//			bg.ball.setX(-10.0f);
-//			bg.ball.setY(288.2f);
-			
-			// check point 3
-//			bg.ball.setX(378.0f);
-//			bg.ball.setY(11.0f);
-			
-			// check point 4
-//			bg.ball.setX(423.0f);
-//			bg.ball.setY(613.0f);			
-	
-			bg.paddle.setX(bg.ball.getX());	
-			bg.paddle.setY(bg.ball.getY());
-//			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
-//			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
-//			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
-//			 bg.paddle.setY(bg.ball.getY()- radius*2);
-
-		}
-		// Cheat codes to allow user to access all of levels by press "P"
-		if (input.isKeyDown(Input.KEY_P)) {
-			for (int i = 0; i < bg.bricks.size(); i++) {
-				Brick bk = bg.bricks.get(i);
-				bg.ball.setY(bk.getY());
-				bg.ball.setX(bk.getX());
-			}
-		}
-		if (input.isKeyDown(Input.KEY_H)) {
-			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
-					new Vector(-.005f, 0)));
-		}
-		if (input.isKeyDown(Input.KEY_L)) {
-			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
-					new Vector(+.005f, 0f)));
-		}
-
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
-			bg.ball.bounce(90);
-		}
-
-		if (input.isMousePressed(Input.MOUSE_RIGHT_BUTTON)) {
-			bg.ball.bounce(180);
-
-		}
-		if (input.isKeyDown(Input.KEY_ADD)) {
-			bg.ball.setVelocity(bg.ball.getVelocity().add(
-					new Vector(+.001f, 0f)));
-
-		}
-		if (input.isKeyDown(Input.KEY_0)) {
-			bg.ball.scale(0.5f);
-		}
-
-		if (input.isKeyDown(Input.KEY_1)) {
-			bg.ball.scale(1.5f);
-
-		}
-
 		if (input.isKeyDown(Input.KEY_HOME))
 			bg.enterState(BounceGame.CONFIGSTATE);
 
 		// bounce the ball...
-		boolean bounced = false;
-//		if (bg.ball.getCoarseGrainedMaxX() > (bg.ScreenWidth -radius)
-//				|| bg.ball.getCoarseGrainedMinX() < radius) {
-//			bg.ball.bounce(90);		
-//			System.out.println("Object enter into target area -0");
-//			bounced = true;
-//		} else if (bg.ball.getCoarseGrainedMaxY() > (bg.ScreenHeight - radius)
-//				|| bg.ball.getCoarseGrainedMinY() < radius) {
-//			bg.ball.setVelocity(new Vector( bg.ball.getVelocity().getX(),
-//					-bg.ball.getVelocity().getY())); // );
-//			System.out.println("Object enter into target area -1");
-//			bg.ball.bounce(0);
-//			bounced = true;
-//		}
-		int bounces_x_count =0;
-		int bounces_y_count =0;
+		boolean bounced = false;	
 		System.out.println("***** check point 1 begin *********");
 		System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
 		System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
@@ -219,17 +115,34 @@ class PlayingState extends BasicGameState {
 		System.out.println("***** check point 1 end *********");
 		if ((bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth && bg.ball.getVelocity().getX()>0)		
 				|| ( bg.ball.getCoarseGrainedMinX() < 0 && bg.ball.getVelocity().getX()<0)) {
-			bg.ball.bounce(90);
-			bounces_x_count++;		
+			bg.ball.bounce(90);			
 			bounced = true;
-		} else if ((bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0)				
-				|| (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0)) {
+		} 
+//		else if ((bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0)				
+//				|| (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0)) {
+//			System.out.println("Before ball.vx= " + bg.ball.getVelocity().getX());
+//			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
+//			bg.ball.bounce(0);
+//			System.out.println("After ball.vx= " + bg.ball.getVelocity().getX());
+//			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
+//			bounced = true;
+//		}
+		
+		else if (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0) {
 			System.out.println("Before ball.vx= " + bg.ball.getVelocity().getX());
 			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
 			bg.ball.bounce(0);
 			System.out.println("After ball.vx= " + bg.ball.getVelocity().getX());
 			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
 			bounced = true;
+		}
+		if(bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0) {
+			System.out.println("ball go to the bottom, orginal lives=" + lives);
+			lives--;
+			System.out.println("ball go to the bottom, updated lives=" + lives);
+			// add music or audio here to notify player who lost one life
+			// ball was disappear for two seconds
+			// reset the position of paddle , and add a ball 
 		}
 		if (bounced) {
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
