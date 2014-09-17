@@ -54,6 +54,9 @@ class StartUpState extends BasicGameState {
 
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame)game;
+		
+		
+	
 
 		if (input.isKeyDown(Input.KEY_SPACE))
 			bg.enterState(BounceGame.PLAYINGSTATE);	

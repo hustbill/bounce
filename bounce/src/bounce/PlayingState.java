@@ -40,108 +40,12 @@ class PlayingState extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-
-		// configuration the Bricks
-		configBricks(game, levels);
-	}
-
-	// configuration the Bricks- 17 columns , 4 rows
-	public void configBricks(StateBasedGame game, int levels) {
 		BounceGame bg = (BounceGame) game;
-		System.out.println("levels= " + levels);
-		switch (levels) {
-		case 1:
-			for (int i = 0; i < 17; i++) {
-				for (int j = 0; j < 4; j++) {
-					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-							bg.ScreenHeight * 1 / 7 + 32 * j);
-					bg.brick.changePic(levels);
-					bg.bricks.add(bg.brick);
-
-				}
-
-			}
-			break;
-
-		case 2:
-			for (int i = 0; i < 8; i++) {
-				for (int j = 8 - i; j < 8; j++) {
-					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-							bg.ScreenHeight * 1 / 10 + 32 * j);
-					bg.brick.changePic(levels);
-					bg.bricks.add(bg.brick);
-
-				}
-
-			}
-			for (int i = 8; i > 0; i--) {
-				for (int j = i; j < 8; j++) {
-					bg.brick = new Brick(bg.ScreenWidth / 2 + 36 * i,
-							bg.ScreenHeight * 1 / 10 + 32 * j);
-					bg.brick.changePic(levels);
-					bg.bricks.add(bg.brick);
-				}
-			}
-			break;
-
-		case 3:
-			for (int i = 0; i < 7; i += 2) {
-				for (int j = 6 - i; j < 7 + i; j += 2) {
-					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-							bg.ScreenHeight * 1 / 10 + 32 * j);
-					bg.brick.changePic(levels);
-					bg.bricks.add(bg.brick);
-				}
-			}
-
-			for (int i = 7; i > 0; i -= 2) {
-				for (int j = 6 - i; j < 6 + i; j += 2) {
-					bg.brick = new Brick(bg.ScreenWidth / 2 + 36 * i,
-							bg.ScreenHeight * 1 / 10 + 32 * j);
-					bg.brick.changePic(levels);
-					bg.bricks.add(bg.brick);
-				}
-			}
-			break;
-		case 4:
-			for (int i = 0; i < 8; i++) {
-				i = i + 1;
-				for (int j = 0; j < 8; j++) {
-					j = j + 1;
-					for (int k = 1; k <= 2 * i - 1; k++) {
-						if (k == 1 || k == 2 * i - 1) {
-							bg.brick = new Brick(bg.ScreenWidth / 4 + 32 * (k),
-									32 * (k - i + j));
-							bg.brick.changePic(levels);
-							bg.bricks.add(bg.brick);
-						}
-					}
-				}
-			}
-			break;
-		default:
-			// for (int i = 0; i < 8; i++) {
-			// for (int j = 7 - i; j < 8 + i; j++) {
-			// bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-			// bg.ScreenHeight * 1 / 10 + 32 * j);
-			// bg.brick.changePic(levels);
-			// bg.bricks.add(bg.brick);
-			// }
-			// }
-			for (int i = 0; i < 17; i++) {
-				for (int j = 0; j < 4; j++) {
-					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-							bg.ScreenHeight * 1 / 7 + 32 * j);
-					bg.brick.changePic(levels);
-					bg.bricks.add(bg.brick);
-
-				}
-
-			}
-
-			break;
+		if (levels <= 4) {
+			bg.brick.configBricks(game, levels);
+			bg.paddle.configPaddle(game, levels);
+			bg.ball.configBall(game, levels);
 		}
-
 	}
 
 	@Override
@@ -152,47 +56,6 @@ class PlayingState extends BasicGameState {
 		container.setSoundOn(true);
 	}
 
-	
-	public static String[][] readXml(String filename) {
-		String[][] data = new String[10][5];
-		final String dir = System.getProperty("user.dir");
-		//System.out.println("current dir = " + dir);
-
-		try {
-			File file = new File(dir + "//src//bounce//resource//" + filename); //testCases.xml
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(file);
-			doc.getDocumentElement().normalize();
-			//System.out.println("Root element "+ doc.getDocumentElement().getNodeName());
-			NodeList nodeLst = doc.getElementsByTagName("game");
-			//System.out.println("Information of all games" + nodeLst.getLength());
-
-			for (int s = 0; s < nodeLst.getLength(); s++) {
-				Node fstNode = nodeLst.item(s);
-				if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element element = (Element) fstNode;
-					data[s][0] = (getValue("player", element));
-					data[s][1] = (getValue("score", element));
-					data[s][2] = (getValue("date", element));
-					data[s][3] = (getValue("resource", element));
-				}
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return data;
-	}
-	
-	private static String getValue(String tag, Element element) {
-		NodeList nodes = element.getElementsByTagName(tag).item(0)
-				.getChildNodes();
-		Node node = (Node) nodes.item(0);
-		return node.getNodeValue();
-	}
-	
-	
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
@@ -203,12 +66,6 @@ class PlayingState extends BasicGameState {
 		for (Brick bk : bg.bricks)
 			bk.render(g);
 
-		
-		
-		
-		
-		
-		
 		g.drawString("Lives Remaining: " + lives, 10, 30);
 		g.drawString("Scores: " + scores, 20, bg.ScreenHeight - 25);
 		g.drawString("Levels: " + levels, bg.ScreenWidth - 90,
@@ -224,6 +81,24 @@ class PlayingState extends BasicGameState {
 
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame) game;
+
+		if (bg.bricks.size() == 0) {
+			levels++;
+			if (levels <= 4) {
+				// System.out.println("Congratulations! Go to next level!");
+				init(container, game);
+
+			} else {
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				bg.enterState(BounceGame.CONFIGSTATE);
+				levels = 1; // reset levels to initial level
+			}
+		}
 
 		if (input.isKeyDown(Input.KEY_W)) {
 			bg.ball.setVelocity(bg.ball.getVelocity().add(
@@ -242,13 +117,37 @@ class PlayingState extends BasicGameState {
 					new Vector(+.001f, 0f)));
 		}
 
+		if (input.isKeyDown(Input.KEY_N)) {
+//			bg.ball.setX( 545.4f);
+//			bg.ball.setY(-8.2f);
+			bg.ball.setX(400.0f);
+			bg.ball.setY(580.0f);
+		}
+		
+		// Press C to save your ball
 		if (input.isKeyDown(Input.KEY_C)) {
-			bg.paddle.setX(bg.ball.getX());
-			// bg.paddle.setY(bg.ball.getY());
-			// if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
-			// bg.paddle.setY(bg.ball.getY()+30);
-			// if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
-			// bg.paddle.setY(bg.ball.getY()-30);
+			//check point 1
+//			bg.ball.setX( 545.4f);
+//			bg.ball.setY(-8.2f);
+			
+			// check point 2
+//			bg.ball.setX(-10.0f);
+//			bg.ball.setY(288.2f);
+			
+			// check point 3
+//			bg.ball.setX(378.0f);
+//			bg.ball.setY(11.0f);
+			
+			// check point 4
+//			bg.ball.setX(423.0f);
+//			bg.ball.setY(613.0f);			
+	
+			bg.paddle.setX(bg.ball.getX());	
+			bg.paddle.setY(bg.ball.getY());
+//			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
+//			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
+//			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
+//			 bg.paddle.setY(bg.ball.getY()- radius*2);
 
 		}
 		// Cheat codes to allow user to access all of levels by press "P"
@@ -268,44 +167,69 @@ class PlayingState extends BasicGameState {
 					new Vector(+.005f, 0f)));
 		}
 
+		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+			bg.ball.bounce(90);
+		}
+
+		if (input.isMousePressed(Input.MOUSE_RIGHT_BUTTON)) {
+			bg.ball.bounce(180);
+
+		}
+		if (input.isKeyDown(Input.KEY_ADD)) {
+			bg.ball.setVelocity(bg.ball.getVelocity().add(
+					new Vector(+.001f, 0f)));
+
+		}
 		if (input.isKeyDown(Input.KEY_0)) {
-			// bg.paddle.setVelocity(bg.paddle.getVelocity().add(new
-			// Vector(+.002f, 0f)));
 			bg.ball.scale(0.5f);
 		}
 
 		if (input.isKeyDown(Input.KEY_1)) {
-			// bg.paddle.setVelocity(bg.paddle.getVelocity().add(new
-			// Vector(+.002f, 0f)));
 			bg.ball.scale(1.5f);
 
 		}
-		
+
 		if (input.isKeyDown(Input.KEY_HOME))
-			bg.enterState(BounceGame.CONFIGSTATE);	
+			bg.enterState(BounceGame.CONFIGSTATE);
 
 		// bounce the ball...
 		boolean bounced = false;
-		if (bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth
-				|| bg.ball.getCoarseGrainedMinX() < 0) {
+//		if (bg.ball.getCoarseGrainedMaxX() > (bg.ScreenWidth -radius)
+//				|| bg.ball.getCoarseGrainedMinX() < radius) {
+//			bg.ball.bounce(90);		
+//			System.out.println("Object enter into target area -0");
+//			bounced = true;
+//		} else if (bg.ball.getCoarseGrainedMaxY() > (bg.ScreenHeight - radius)
+//				|| bg.ball.getCoarseGrainedMinY() < radius) {
+//			bg.ball.setVelocity(new Vector( bg.ball.getVelocity().getX(),
+//					-bg.ball.getVelocity().getY())); // );
+//			System.out.println("Object enter into target area -1");
+//			bg.ball.bounce(0);
+//			bounced = true;
+//		}
+		int bounces_x_count =0;
+		int bounces_y_count =0;
+		System.out.println("***** check point 1 begin *********");
+		System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
+		System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
+		System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
+		System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
+		System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
+		System.out.println("***** check point 1 end *********");
+		if ((bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth && bg.ball.getVelocity().getX()>0)		
+				|| ( bg.ball.getCoarseGrainedMinX() < 0 && bg.ball.getVelocity().getX()<0)) {
 			bg.ball.bounce(90);
-			if (bg.ball.getX() > 0)
-				bg.ball.setX(bg.ball.getX() - radius);
-			if (bg.ball.getX() < 0)
-				bg.ball.setX(bg.ball.getX() + radius);
-
+			bounces_x_count++;		
 			bounced = true;
-		} else if (bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight
-				|| bg.ball.getCoarseGrainedMinY() < 0) {
-
+		} else if ((bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0)				
+				|| (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0)) {
+			System.out.println("Before ball.vx= " + bg.ball.getVelocity().getX());
+			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
 			bg.ball.bounce(0);
-			if (bg.ball.getY() > 0)
-				bg.ball.setY(bg.ball.getY() - 2 * radius);
-			if (bg.ball.getY() < 0)
-				bg.ball.setY(bg.ball.getY() + 2 * radius);
+			System.out.println("After ball.vx= " + bg.ball.getVelocity().getX());
+			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
 			bounced = true;
 		}
-
 		if (bounced) {
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
@@ -358,26 +282,6 @@ class PlayingState extends BasicGameState {
 				}
 			}
 		}
-		if (bg.bricks.size() == 0) {
-			// System.out.println("Congratulations! You can go to the next level! ");
-			levels++;
-			if (levels <= 4) {					
-				this.init(container, game);
-			} else {
-				try {
-					Thread.sleep(1500);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				System.out.println("current levels= " + levels);
-			 	bg.enterState(BounceGame.CONFIGSTATE);
-			 	levels = 1;  //reset levels to initial level
-			 	
-			}
-		
-		}
 
 		// check if there are any finished explosions, if so remove them
 		for (Iterator<Bang> i = bg.explosions.iterator(); i.hasNext();) {
@@ -387,6 +291,12 @@ class PlayingState extends BasicGameState {
 		}
 
 		if (lives == 0) {
+			System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
+			System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
+			System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
+			System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
+			System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
+			
 			((GameOverState) game.getState(BounceGame.GAMEOVERSTATE))
 					.setUserScore(lives);
 			game.enterState(BounceGame.GAMEOVERSTATE);
@@ -397,24 +307,20 @@ class PlayingState extends BasicGameState {
 	public boolean detectCollision_paddle(float ball_x, float ball_y,
 			float paddle_x, float paddle_y, float paddle_height,
 			float paddle_length, float radius) {
-		// public boolean detectCollision( float ball_x, float ball_y, float
-		// paddle_x, float paddle_y) {
-		float delta_x = ball_x - paddle_x;
-		float delta_y = ball_y - paddle_y;
+	
 		// System.out.println("ball_x=" + ball_x);
 		// System.out.println("ball_y=" + ball_y);
+		float delta_x = ball_x - paddle_x;
+		float delta_y = ball_y - paddle_y;
 		// System.out.println("paddle_x=" + paddle_x);
 		// System.out.println("paddle_y=" + paddle_y);
-
 		if (Math.abs(delta_x) < (paddle_length / 2 + radius)
 				&& Math.abs(delta_y) < (paddle_height / 2 + radius)) {
-			// System.out.println("radius = " + radius);
 			System.out.println("collision with paddle!\n");
 			System.out.println("delta_x = " + Math.abs(delta_x));
 			System.out.println("delta_y = " + Math.abs(delta_y));
 			return true;
 		}
-
 		else
 			return false;
 	}

@@ -1,6 +1,8 @@
 package bounce;
 
 
+import org.newdawn.slick.state.StateBasedGame;
+
 import jig.Entity;
 import jig.ResourceManager;
 import jig.Vector;
@@ -36,9 +38,113 @@ public class Brick extends Entity {
 		
 		//velocity = velocity.bounce(surfaceTangent);
 	}
+	
+	/*
+	 *  Configure the Bricks: location, shape, image
+	 */
+	public void configBricks(StateBasedGame game, int levels) {
+		BounceGame bg = (BounceGame) game;
+		System.out.println("levels= " + levels);
+		switch (levels) {
+		case 1:
+			for (int i = 0; i < 17; i++) {
+				for (int j = 0; j < 4; j++) {
+					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+							bg.ScreenHeight * 1 / 7 + 32 * j);				
+					bg.bricks.add(bg.brick);
+
+				}
+
+			}
+			break;
+
+		case 2:
+			for (int i = 0; i < 8; i++) {
+				for (int j = 8 - i; j < 8; j++) {
+					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+							bg.ScreenHeight * 1 / 10 + 32 * j);
+					bg.brick.changePic(levels);
+					bg.bricks.add(bg.brick);
+
+				}
+
+			}
+			for (int i = 8; i > 0; i--) {
+				for (int j = i; j < 8; j++) {
+					bg.brick = new Brick(bg.ScreenWidth / 2 + 36 * i,
+							bg.ScreenHeight * 1 / 10 + 32 * j);
+					bg.brick.changePic(levels);
+					bg.bricks.add(bg.brick);
+				}
+			}
+			break;
+
+		case 3:
+			for (int i = 0; i < 7; i += 2) {
+				for (int j = 6 - i; j < 7 + i; j += 2) {
+					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+							bg.ScreenHeight * 1 / 10 + 32 * j);
+					bg.brick.changePic(levels);
+					bg.bricks.add(bg.brick);
+				}
+			}
+
+			for (int i = 7; i > 0; i -= 2) {
+				for (int j = 6 - i; j < 6 + i; j += 2) {
+					bg.brick = new Brick(bg.ScreenWidth / 2 + 36 * i,
+							bg.ScreenHeight * 1 / 10 + 32 * j);
+					bg.brick.changePic(levels);
+					bg.bricks.add(bg.brick);
+				}
+			}
+			break;
+		case 4:
+			for (int i = 0; i < 8; i++) {
+				i = i + 1;
+				for (int j = 0; j < 8; j++) {
+					j = j + 1;
+					for (int k = 1; k <= 2 * i - 1; k++) {
+						if (k == 1 || k == 2 * i - 1) {
+							bg.brick = new Brick(bg.ScreenWidth / 4 + 32 * (k),
+									32 * (k - i + j));
+							bg.brick.changePic(levels);
+							bg.bricks.add(bg.brick);
+						}
+					}
+				}
+			}
+			break;
+		default:
+			// for (int i = 0; i < 8; i++) {
+			// for (int j = 7 - i; j < 8 + i; j++) {
+			// bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+			// bg.ScreenHeight * 1 / 10 + 32 * j);
+			// bg.brick.changePic(levels);
+			// bg.bricks.add(bg.brick);
+			// }
+			// }
+			for (int i = 0; i < 17; i++) {
+				for (int j = 0; j < 4; j++) {
+					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
+							bg.ScreenHeight * 1 / 7 + 32 * j);
+					bg.brick.changePic(levels);
+					bg.bricks.add(bg.brick);
+
+				}
+
+			}
+
+			break;
+		}
+
+	}
 
 	public void changePic(int levels) {
 		switch(levels) {
+		case 1:
+			addImageWithBoundingBox(ResourceManager
+					.getImage(BounceGame.BRICK_RSC));
+			break;
 		case 2:
 			removeImage(ResourceManager
 					.getImage(BounceGame.BRICK_RSC));
@@ -79,7 +185,13 @@ public class Brick extends Entity {
 	public void update(int levels) {
 		
 		switch(levels) {
+			case 1:
+				removeImage(ResourceManager
+						.getImage(BounceGame.BRICK_RSC));
+			break;
+			
 			case 2: //for first hit, just change the image to skull
+				System.out.println("Enter into Brick update method");
 				removeImage(ResourceManager
 						.getImage(BounceGame.ZOMBIE_RSC));
 				addImageWithBoundingBox(ResourceManager

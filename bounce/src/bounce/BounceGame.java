@@ -93,6 +93,7 @@ public class BounceGame extends StateBasedGame {
 		explosions = new ArrayList<Bang>(10);
 		bricks = new ArrayList<Brick>(10);
 	
+	
 	}
 
 
@@ -127,8 +128,7 @@ public class BounceGame extends StateBasedGame {
 		
 		ball = new Ball(ScreenWidth / 2, ScreenHeight / 2, .1f, .2f);
 		paddle = new Paddle(ScreenWidth / 2, ScreenHeight * 19/20  , .2f, .0f, 90.0f);
-		
-		//brick = new Brick(ScreenWidth / 7 , ScreenHeight * 1/5 );
+		brick = new Brick(ScreenWidth / 7 , ScreenHeight * 1/5 );
 
 	}
 	

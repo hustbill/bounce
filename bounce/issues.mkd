@@ -14,7 +14,7 @@
 - **[12]** Add a progression of four levels
 - **[13]** Corrected collision response for the ball, so it doesn't get caught in walls or in bricks.
 - **[14]** Add a customized splash screen with the player's name
+- **[15]** Fix the bug- ball get caught in the walls.
 
 ## Open Issues ##
-
-
+- **[6]** Persistent high score tracking in XML file
