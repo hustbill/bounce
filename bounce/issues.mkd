@@ -19,3 +19,4 @@
 
 ## Open Issues ##
 - **[17]** Persistent high score tracking in XML file
+- **[18]** Add bonus class to raise the interest and fun
