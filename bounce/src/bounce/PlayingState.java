@@ -143,10 +143,11 @@ class PlayingState extends BasicGameState {
 //			bg.ball.setY(613.0f);			
 	
 			bg.paddle.setX(bg.ball.getX());	
-			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
-			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
-			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
-			 bg.paddle.setY(bg.ball.getY()- radius*2);
+			bg.paddle.setY(bg.ball.getY());
+//			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
+//			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
+//			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
+//			 bg.paddle.setY(bg.ball.getY()- radius*2);
 
 		}
 		// Cheat codes to allow user to access all of levels by press "P"
@@ -208,9 +209,13 @@ class PlayingState extends BasicGameState {
 //		}
 		int bounces_x_count =0;
 		int bounces_y_count =0;
+		System.out.println("***** check point 1 begin *********");
 		System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
 		System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
 		System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
+		System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
+		System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
+		System.out.println("***** check point 1 end *********");
 		if ((bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth && bg.ball.getVelocity().getX()>0)		
 				|| ( bg.ball.getCoarseGrainedMinX() < 0 && bg.ball.getVelocity().getX()<0)) {
 			bg.ball.bounce(90);
