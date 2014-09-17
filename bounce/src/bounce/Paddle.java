@@ -1,5 +1,7 @@
 package bounce;
 
+import org.newdawn.slick.state.StateBasedGame;
+
 import jig.Entity;
 import jig.ResourceManager;
 import jig.Vector;
@@ -43,6 +45,33 @@ public class Paddle extends Entity{
 	public float getAngle() {
 		return angle;
 	}
+	
+	/*
+	 *  Configure the paddle: location, shape, image
+	 */
+	public void configPaddle(StateBasedGame game, int levels) {
+		BounceGame bg = (BounceGame) game;
+		System.out.println("levels= " + levels);
+		switch (levels) {
+		case 1:
+			bg.paddle.scale(1.0f);
+			break;
+		case 2:
+			bg.paddle.scale(.9f);
+			break;			
+		case 3:
+			bg.paddle.scale(.8f);
+			break;
+		case 4:
+			bg.paddle.scale(.7f);
+			break;
+
+		default:
+			bg.paddle.scale(.8f);
+			break;
+		}
+	}
+	
 	
 	/**
 	 * Bounce the ball off a surface. This simple implementation, combined

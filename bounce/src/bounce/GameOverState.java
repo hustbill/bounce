@@ -31,6 +31,8 @@ class GameOverState extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
+		
+		
 	}
 	
 	@Override
@@ -47,6 +49,7 @@ class GameOverState extends BasicGameState {
 			Graphics g) throws SlickException {
 
 		BounceGame bg = (BounceGame)game;
+		
 		g.drawString("Bounces: " + lastKnownBounces, 10, 30);
 		for (Bang b : bg.explosions)
 			b.render(g);

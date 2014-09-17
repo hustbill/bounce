@@ -16,5 +16,4 @@
 - **[14]** Add a customized splash screen with the player's name
 
 ## Open Issues ##
-
-
+- **[15]** Persistent high score tracking in XML file

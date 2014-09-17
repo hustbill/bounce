@@ -1,5 +1,7 @@
 package bounce;
 
+import org.newdawn.slick.state.StateBasedGame;
+
 import jig.Entity;
 import jig.ResourceManager;
 import jig.Vector;
@@ -31,6 +33,38 @@ import jig.Vector;
 		return velocity;
 	}
 
+	/*
+	 *  Configure the ball: velocity, shape, image
+	 */
+	public void configBall(StateBasedGame game, int levels) {
+		BounceGame bg = (BounceGame) game;
+		System.out.println("levels= " + levels);
+		switch (levels) {
+		case 1:
+			bg.ball.scale(1.0f);
+			bg.ball.setVelocity(new Vector(.1f, .2f));			
+			break;
+		case 2:
+			bg.ball.scale(.9f);
+			bg.ball.setVelocity(new Vector(.15f, .25f));
+			break;			
+		case 3:
+			bg.ball.scale(.85f);
+			bg.ball.setVelocity(new Vector(.18f, .28f));
+			break;
+		case 4:
+			bg.ball.scale(.75f);
+			bg.ball.setVelocity(new Vector(.20f, .30f));
+			break;
+
+		default:
+			bg.ball.scale(.8f);
+			bg.ball.setVelocity(new Vector(.15f, .25f));
+			break;
+		}
+	}
+	
+	
 	/**
 	 * Bounce the ball off a surface. This simple implementation, combined
 	 * with the test used when calling this method can cause "issues" in
