@@ -70,7 +70,9 @@ public class BounceGame extends StateBasedGame {
 	Ball ball;
 	Paddle paddle;
 	Brick brick;
+	Bonus coin;
 	
+	ArrayList<Bonus> coins;
 	ArrayList<Brick> bricks;
 	ArrayList<Bang> explosions;
 
@@ -92,6 +94,7 @@ public class BounceGame extends StateBasedGame {
 		Entity.setCoarseGrainedCollisionBoundary(Entity.AABB);
 		explosions = new ArrayList<Bang>(10);
 		bricks = new ArrayList<Brick>(10);
+		coins = new ArrayList<Bonus>(10);
 	
 	
 	}
@@ -126,9 +129,10 @@ public class BounceGame extends StateBasedGame {
 		ResourceManager.loadImage(BANG_EXPLOSIONIMG_RSC);
 		
 		
-		ball = new Ball(ScreenWidth / 2, ScreenHeight / 2, .1f, .2f);
-		paddle = new Paddle(ScreenWidth / 2, ScreenHeight * 19/20  , .2f, .0f, 90.0f);
+		ball = new Ball(ScreenWidth / 2, ScreenHeight -60, .006f, -.006f);
+		paddle = new Paddle(ScreenWidth / 2, ScreenHeight -40  , .0f, .0f, 90.0f);
 		brick = new Brick(ScreenWidth / 7 , ScreenHeight * 1/5 );
+		coin = new Bonus(300.0f, 32.0f, 0.0f, 0.0f);
 
 	}
 	

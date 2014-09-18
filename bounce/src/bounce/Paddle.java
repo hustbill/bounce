@@ -52,22 +52,25 @@ public class Paddle extends Entity{
 	public void configPaddle(StateBasedGame game, int levels) {
 		BounceGame bg = (BounceGame) game;
 		System.out.println("levels= " + levels);
+		bg.paddle.setX(400.0f); //set the position and velocity of paddle
+		bg.paddle.setY(580.0f);
+		bg.paddle.setVelocity(new Vector(0.0f, 0.0f));
 		switch (levels) {
 		case 1:
 			bg.paddle.scale(1.0f);
 			break;
 		case 2:
-			bg.paddle.scale(.9f);
+			bg.paddle.scale(.95f);
 			break;			
 		case 3:
-			bg.paddle.scale(.85f);
+			bg.paddle.scale(.90f);
 			break;
 		case 4:
-			bg.paddle.scale(.8f);
+			bg.paddle.scale(.85f);
 			break;
 
 		default:
-			bg.paddle.scale(.85f);
+			bg.paddle.scale(.90f);
 			break;
 		}
 	}
