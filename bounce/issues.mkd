@@ -16,6 +16,7 @@
 - **[14]** Add a customized splash screen with the player's name
 - **[15]** Fix the bug- ball get caught in the walls.
 - **[16]** Modify lives change model, ball go to bottom, lost one life
+- **[17]** Add bonus class to raise the interest and fun
 
 ## Open Issues ##
-- **[17]** Persistent high score tracking in XML file
+- **[18]** Persistent high score tracking in XML file

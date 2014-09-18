@@ -1,5 +1,6 @@
 package bounce;
 
+
 import org.newdawn.slick.state.StateBasedGame;
 
 import jig.Entity;
@@ -8,26 +9,29 @@ import jig.Vector;
 
 
 /**
- * The Paddle class is an Entity that has a velocity (since it's moving).
- * User can control a paddle to influences the path of ball
+ * The Bonus class is an Entity that has a velocity (since it's moving).
+ * User can let the ball hit the coin to increase their scores
  * 
  *  @author Hua Zhang
  */
 
-public class Paddle extends Entity{
+
+public class Bonus extends Entity{
 	
 	private Vector velocity;
+	private int count=5;  // coins number
 	private int countdown;
-	public float angle;
+	public int hit_times;
 
-	public Paddle(final float x, final float y, final float vx, float vy, float angle_degree) {
+	public Bonus( float x,  float y, float vx, float vy) {
 		super(x, y);
 		addImageWithBoundingBox(ResourceManager
-				.getImage(BounceGame.PADDLE_RSC));
-		vy=0.0f;
+				.getImage(BounceGame.COIN_RSC));
+		//vx=0.0f;
 		velocity = new Vector(vx, vy);
+		count = 5;
 		countdown = 0;
-		angle =angle_degree;
+		
 	}
 
 	public void setVelocity(final Vector v) {
@@ -38,39 +42,53 @@ public class Paddle extends Entity{
 		return velocity;
 	}
 	
-	public void setAngle(final float angle_num){
-		angle = angle_num;
+	public void setCoinCount(int coinsCount) {
+		count = coinsCount;
 	}
 	
-	public float getAngle() {
-		return angle;
+	public int getCoinsCount() {
+		return count;
 	}
 	
 	/*
-	 *  Configure the paddle: location, shape, image
+	 *  Configure the number of coins
 	 */
-	public void configPaddle(StateBasedGame game, int levels) {
+	public void configBonus(StateBasedGame game, int levels) {
 		BounceGame bg = (BounceGame) game;
 		System.out.println("levels= " + levels);
-		bg.paddle.setX(400.0f); //set the position and velocity of paddle
-		bg.paddle.setY(580.0f);
-		bg.paddle.setVelocity(new Vector(0.0f, 0.0f));
 		switch (levels) {
 		case 1:
-			bg.paddle.scale(1.0f);
+			for (int j = 0; j < 3; j++) {
+				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32*j , -0.01f*j, 0.005f*j);				
+				bg.coin.setVelocity(new Vector(-0.1f, 0.2f));
+				bg.coins.add(bg.coin);
+				
+			}
 			break;
 		case 2:
-			bg.paddle.scale(.95f);
+			for (int j = 0; j < 4; j++) {
+				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);			
+				bg.coins.add(bg.coin);
+			}
 			break;			
 		case 3:
-			bg.paddle.scale(.90f);
+			for (int j = 0; j < 5; j++) {
+				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);				
+				bg.coins.add(bg.coin);
+			}
 			break;
 		case 4:
-			bg.paddle.scale(.85f);
+			for (int j = 0; j < 6; j++) {
+				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);				
+				bg.coins.add(bg.coin);
+			}
 			break;
 
 		default:
-			bg.paddle.scale(.90f);
+			for (int j = 0; j < 3; j++) {
+				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);				
+				bg.coins.add(bg.coin);
+			}
 			break;
 		}
 	}
@@ -102,14 +120,15 @@ public class Paddle extends Entity{
 		translate(velocity.scale(delta));
 		if (countdown > 0) {
 			countdown -= delta;
-//			if (countdown <= 0) {
-//				addImageWithBoundingBox(ResourceManager
-//						.getImage(BounceGame.BALL_BALLIMG_RSC));
+			if (countdown <= 0) {
+				addImageWithBoundingBox(ResourceManager
+						.getImage(BounceGame.COIN_RSC));
 //				removeImage(ResourceManager
-//						.getImage(BounceGame.BALL_BROKENIMG_RSC));
-//			}
+//						.getImage(BounceGame.COIN_RSC));
+			}
 		}
 	}
 	
+
 
 }

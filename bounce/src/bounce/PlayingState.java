@@ -1,11 +1,8 @@
 package bounce;
 
-import java.io.File;
 import java.util.Iterator;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import jig.Entity;
 import jig.ResourceManager;
 import jig.Vector;
 
@@ -15,10 +12,6 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 /**
  * This state is active when the Game is being played. In this state, sound is
@@ -31,7 +24,7 @@ import org.w3c.dom.NodeList;
  * Transitions To GameOverState
  */
 class PlayingState extends BasicGameState {
-	int lives =3;
+	int lives = 3;
 	int bounces;
 	int levels = 1;
 	int scores = 0;
@@ -42,13 +35,13 @@ class PlayingState extends BasicGameState {
 			throws SlickException {
 		BounceGame bg = (BounceGame) game;
 		if (levels <= 4) {
-			lives =3; //reset the lives to 3 for each level
+			lives = 3; // reset the lives to 3 for each level
 			bg.brick.configBricks(game, levels);
 			bg.paddle.configPaddle(game, levels);
 			bg.ball.configBall(game, levels);
+			bg.coin.configBonus(game, levels);
 		}
-		
-		System.out.println("init playingState, initial lives=" + lives);
+		// System.out.println("init playingState, initial lives=" + lives);
 	}
 
 	@Override
@@ -57,7 +50,7 @@ class PlayingState extends BasicGameState {
 		bounces = 0;
 		levels = 1;
 		container.setSoundOn(true);
-		
+
 	}
 
 	@Override
@@ -67,8 +60,11 @@ class PlayingState extends BasicGameState {
 
 		bg.ball.render(g);
 		bg.paddle.render(g);
+		// bg.coin.render(g);
 		for (Brick bk : bg.bricks)
 			bk.render(g);
+		for (Bonus coin : bg.coins)
+			coin.render(g);
 
 		g.drawString("Lives Remaining: " + lives, 10, 30);
 		g.drawString("Scores: " + scores, 20, bg.ScreenHeight - 25);
@@ -85,8 +81,8 @@ class PlayingState extends BasicGameState {
 
 		Input input = container.getInput();
 		BounceGame bg = (BounceGame) game;
-		System.out.println("update playingState, update lives=" + lives);
-		//If all bricks are destroyed, go to next level or enter ConfigState to check score
+		// If all bricks are destroyed, go to next level or enter ConfigState to
+		// check score
 		if (bg.bricks.size() == 0) {
 			levels++;
 			if (levels <= 4) {
@@ -97,106 +93,97 @@ class PlayingState extends BasicGameState {
 				try {
 					Thread.sleep(1500);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				bg.enterState(BounceGame.CONFIGSTATE);//enter ConfigState to check score			
+				bg.enterState(BounceGame.CONFIGSTATE);// enter ConfigState to
+														// check score
 			}
 		}
-		bg.ball.controlBall(input,  bg); //control the velocity of ball by press Keys 
-		
+		bg.ball.controlBall(input, bg); // control the velocity of ball by press
+										// Keys
+
 		if (input.isKeyDown(Input.KEY_HOME))
 			bg.enterState(BounceGame.CONFIGSTATE);
 
 		// bounce the ball...
-		boolean bounced = false;	
-		System.out.println("***** check point 1 begin *********");
-		System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
-		System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
-		System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
-		System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
-		System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
-		System.out.println("***** check point 1 end *********");
-		if ((bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth && bg.ball.getVelocity().getX()>0)		
-				|| ( bg.ball.getCoarseGrainedMinX() < 0 && bg.ball.getVelocity().getX()<0)) {
-			bg.ball.bounce(90);			
+		boolean bounced = false;
+		// System.out.println("***** check point 1 begin *********");
+		// System.out.println("ball.x = "+ bg.ball.getX() + "ball.y =" +
+		// bg.ball.getY());
+		// System.out.println("bg.ball.getCoarseGrainedMinY()="
+		// +bg.ball.getCoarseGrainedMinY());
+		// System.out.println("bg.ball.getCoarseGrainedMaxY()="
+		// +bg.ball.getCoarseGrainedMaxY());
+		// System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
+		// System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
+		// System.out.println("***** check point 1 end *********");
+		if ((bg.ball.getCoarseGrainedMaxX() > bg.ScreenWidth && bg.ball
+				.getVelocity().getX() > 0)
+				|| (bg.ball.getCoarseGrainedMinX() < 0 && bg.ball.getVelocity()
+						.getX() < 0)) {
+			bg.ball.bounce(90);
 			bounced = true;
-		} 
-//		else if ((bg.ball.getCoarseGrainedMaxY() > bg.ScreenHeight && bg.ball.getVelocity().getY()>0)				
-//				|| (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0)) {
-//			System.out.println("Before ball.vx= " + bg.ball.getVelocity().getX());
-//			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
-//			bg.ball.bounce(0);
-//			System.out.println("After ball.vx= " + bg.ball.getVelocity().getX());
-//			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
-//			bounced = true;
-//		}
-		
-		else if (bg.ball.getCoarseGrainedMinY() < 0 && bg.ball.getVelocity().getY()<0) {
-			System.out.println("Before ball.vY= " + bg.ball.getVelocity().getY());
+		} else if (bg.ball.getCoarseGrainedMinY() < 0
+				&& bg.ball.getVelocity().getY() < 0) {
 			bg.ball.bounce(0);
-			System.out.println("After ball.vY= " + bg.ball.getVelocity().getY());		
 			bounced = true;
 		}
-		System.out.println("ball go to the bottom, before lives=" + lives);
-		if(bg.ball.getY() > bg.ScreenHeight + radius && bg.ball.getVelocity().getY()>0) {
-			System.out.println("ball go to the bottom, orginal lives=" + lives);
-			lives--;
-			bg.paddle.setX(400.0f);
-			bg.paddle.setY(580.0f);
-			bg.paddle.setVelocity(new Vector(.0f, 0.0f));
-			try {
-		
-				Thread.sleep(1000);
-		
-			    //bounced =true;
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			bg.ball.setX(400.0f);
-			bg.ball.setY(550.0f);
 
-			bg.paddle.setVelocity(new Vector(.1f, 0.0f));
-			bg.ball.setVelocity(new Vector(.15f, -0.15f));
-			
-			System.out.println("ball go to the bottom, updated lives=" + lives);
+		if (bg.ball.getY() > bg.ScreenHeight + radius
+				&& bg.ball.getVelocity().getY() > 0) {
+			lives--;
+			// reset position & velocity of paddle and ball
+			bg.paddle.configPaddle(game, levels); 
+			bg.ball.configBall(game, levels);
 			// add music or audio here to notify player who lost one life
-			// ball was disappear for two seconds
-			// reset the position of paddle , and add a ball 
 		}
 		if (bounced) {
 			bg.explosions.add(new Bang(bg.ball.getX(), bg.ball.getY()));
 			bounces++;
-			System.out.println("bounces= " + bounces);			
+			System.out.println("bounces= " + bounces);
 		}
 		bg.ball.update(delta);
+
+		// move the paddle ...
+		if (bg.coin.getCoarseGrainedMaxX() > bg.ScreenWidth
+				|| bg.paddle.getCoarseGrainedMinX() < 0) {
+			bg.coin.bounce(90);
+			bounced = true;
+		}
+		// detect the collision between coin and paddle
+		for (int i = 0; i < bg.coins.size(); i++) {
+			Bonus cn = bg.coins.get(i);
+			if (detectCollision(cn, bg.paddle)) {
+				bg.coins.remove(cn); // remove coin from ArrayList
+				scores += 10; // one coin equals 10 points
+			}
+		}
+		bg.coin.update(delta);
 
 		// move the paddle ...
 		if (bg.paddle.getCoarseGrainedMaxX() > bg.ScreenWidth
 				|| bg.paddle.getCoarseGrainedMinX() < 0) {
 			bg.paddle.bounce(90);
-			bounced = true;
+
 		}
 		// detect the collision between ball and paddle
-		if (detectCollision_paddle(bg.ball.getX(), bg.ball.getY(),
-				bg.paddle.getX(), bg.paddle.getY(),
-				bg.paddle.getCoarseGrainedHeight(),
-				bg.paddle.getCoarseGrainedWidth(), radius)) {
+		if (detectCollision(bg.ball, bg.paddle)) {
 			bg.ball.bounce(180);
-			// bg.ball.setX(bg.paddle.getX() +
-			// bg.paddle.getCoarseGrainedHeight()/2);
 			bg.ball.setY(bg.paddle.getY() - radius * 4 / 3);
 			bounced = true;
 		}
 		bg.paddle.update(delta);
 
+		for (int i = 0; i < bg.coins.size(); i++) {
+			Bonus cn = bg.coins.get(i);
+			cn.setVelocity(new Vector(-0.015f * i, 0.01f * i));
+			cn.update(delta); // make coin fly
+		}
+
 		// detect the collision between ball and bricks
 		for (int i = 0; i < bg.bricks.size(); i++) {
 			Brick bk = bg.bricks.get(i);
-			if (detectCollision_brick(bg.ball.getX(), bg.ball.getY(),
-					bk.getX(), bk.getY(), bk.getCoarseGrainedHeight(),
-					bk.getCoarseGrainedWidth(), radius)) {
+			if (detectCollision(bg.ball, bk)) {  //treat brick as a paddle to detect collision
 				bg.ball.bounce(180);
 				bounced = true;
 				if (levels == 1) {
@@ -207,7 +194,8 @@ class PlayingState extends BasicGameState {
 					bk.hit_times++;
 					System.out.println("levels= " + levels);
 				}
-				if (bk.hit_times == 2) {
+				if (bk.hit_times == 2) { // to destroy pig, fish, zombie, need
+											// hit them twice
 					bg.bricks.remove(bk);
 					scores += 2;
 				}
@@ -222,59 +210,30 @@ class PlayingState extends BasicGameState {
 		}
 
 		if (lives == 0) {
-			System.out.println("ball.x = "+  bg.ball.getX() + "ball.y =" + bg.ball.getY());
-			System.out.println("ball.vx= " + bg.ball.getVelocity().getX());
-			System.out.println("ball.vY= " + bg.ball.getVelocity().getY());
-			System.out.println("bg.ball.getCoarseGrainedMinY()=" +bg.ball.getCoarseGrainedMinY());
-			System.out.println("bg.ball.getCoarseGrainedMaxY()=" +bg.ball.getCoarseGrainedMaxY());
-			
 			((GameOverState) game.getState(BounceGame.GAMEOVERSTATE))
 					.setUserScore(lives);
 			game.enterState(BounceGame.GAMEOVERSTATE);
 		}
 	}
 
-	// collision detection between paddle and ball
-	public boolean detectCollision_paddle(float ball_x, float ball_y,
-			float paddle_x, float paddle_y, float paddle_height,
-			float paddle_length, float radius) {
-	
-		// System.out.println("ball_x=" + ball_x);
-		// System.out.println("ball_y=" + ball_y);
-		float delta_x = ball_x - paddle_x;
-		float delta_y = ball_y - paddle_y;
-		// System.out.println("paddle_x=" + paddle_x);
-		// System.out.println("paddle_y=" + paddle_y);
-		if (Math.abs(delta_x) < (paddle_length / 2 + radius)
-				&& Math.abs(delta_y) < (paddle_height / 2 + radius)) {
-			System.out.println("collision with paddle!\n");
-			System.out.println("delta_x = " + Math.abs(delta_x));
-			System.out.println("delta_y = " + Math.abs(delta_y));
-			return true;
-		}
-		else
+	/*
+	 * collision detection between ball, coin and paddle
+	 */
+	public boolean detectCollision(Entity coin, Entity paddle) {
+		float delta_x = coin.getX() - paddle.getX();
+		float delta_y = coin.getY() - paddle.getY();
+
+		if (Math.sqrt(delta_y * delta_y + delta_x * delta_x) < radius
+				+ paddle.getCoarseGrainedWidth()) {
+			if (Math.abs(delta_x) < (radius + paddle.getCoarseGrainedWidth() / 2 )
+					&& Math.abs(delta_y) < ( radius + paddle.getCoarseGrainedHeight() / 2)) {
+				System.out.println("collision detected! ");
+				return true;
+			} else
+				return false;
+		} else
 			return false;
-	}
 
-	// collision detection between ball and bricks
-	public boolean detectCollision_brick(float ball_x, float ball_y,
-			float brick_x, float brick_y, float brick_height,
-			float brick_length, float radius) {
-		// public boolean detectCollision( float ball_x, float ball_y, float
-		// brick_x, float brick_y) {
-		float delta_x = ball_x - brick_x;
-		float delta_y = ball_y - brick_y;
-
-		if (Math.abs(delta_x) < (brick_length / 2 + radius)
-				&& Math.abs(delta_y) < (brick_height / 2 + radius)) {
-			// System.out.println("collision with brick!\n");
-			// System.out.println("delta_x = " + Math.abs(delta_x));
-			// System.out.println("delta_y = " + Math.abs(delta_y));
-			return true;
-		}
-
-		else
-			return false;
 	}
 
 	@Override
