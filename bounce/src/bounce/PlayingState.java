@@ -34,8 +34,10 @@ class PlayingState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		BounceGame bg = (BounceGame) game;
+
 		if (levels <= 4) {
 			lives = 3; // reset the lives to 3 for each level
+			ResourceManager.getSound(BounceGame.START_GAME_RSC).play();
 			bg.brick.configBricks(game, levels);
 			bg.paddle.configPaddle(game, levels);
 			bg.ball.configBall(game, levels);
@@ -63,8 +65,8 @@ class PlayingState extends BasicGameState {
 		// bg.coin.render(g);
 		for (Brick bk : bg.bricks)
 			bk.render(g);
-		for (Bonus coin : bg.coins)
-			coin.render(g);
+		for (Bonus cn : bg.coins)
+			cn.render(g);
 
 		g.drawString("Lives Remaining: " + lives, 10, 30);
 		g.drawString("Scores: " + scores, 20, bg.ScreenHeight - 25);
@@ -99,9 +101,8 @@ class PlayingState extends BasicGameState {
 														// check score
 			}
 		}
-		bg.ball.controlBall(input, bg); // control the velocity of ball by press
-										// Keys
-
+		bg.ball.controlBall(input, bg); // control velocity of ball by press Keys
+		bg.paddle.controlPaddle(input,bg);
 		if (input.isKeyDown(Input.KEY_HOME))
 			bg.enterState(BounceGame.CONFIGSTATE);
 
@@ -135,6 +136,8 @@ class PlayingState extends BasicGameState {
 			// reset position & velocity of paddle and ball
 			bg.paddle.configPaddle(game, levels); 
 			bg.ball.configBall(game, levels);
+			//bg.coin.configBonus(game, levels);
+			
 			// add music or audio here to notify player who lost one life
 		}
 		if (bounced) {
@@ -144,21 +147,28 @@ class PlayingState extends BasicGameState {
 		}
 		bg.ball.update(delta);
 
-		// move the paddle ...
-		if (bg.coin.getCoarseGrainedMaxX() > bg.ScreenWidth
-				|| bg.paddle.getCoarseGrainedMinX() < 0) {
-			bg.coin.bounce(90);
-			bounced = true;
+		for (int i = 0; i < bg.coins.size(); i++) {
+			Bonus cn = bg.coins.get(i);
+			cn.setVelocity(new Vector(-0.015f * i, 0.01f * i));
+			cn.update(delta); // make coin fly
+			
 		}
 		// detect the collision between coin and paddle
 		for (int i = 0; i < bg.coins.size(); i++) {
-			Bonus cn = bg.coins.get(i);
+			Bonus cn = bg.coins.get(i);		
 			if (detectCollision(cn, bg.paddle)) {
 				bg.coins.remove(cn); // remove coin from ArrayList
+				ResourceManager.getSound(BounceGame.PICKED_COIN_RSC).play();
+				//coin sound http://www.freesound.org/people/NenadSimic/sounds/171696/
 				scores += 10; // one coin equals 10 points
+			}else{
+				if(cn.getCoarseGrainedMaxX() > bg.ScreenWidth ||
+						cn.getCoarseGrainedMinX() <0 ||
+						cn.getCoarseGrainedMaxY() > bg.ScreenHeight) {
+					bg.coins.remove(cn);					
+				}
 			}
 		}
-		bg.coin.update(delta);
 
 		// move the paddle ...
 		if (bg.paddle.getCoarseGrainedMaxX() > bg.ScreenWidth
@@ -169,25 +179,25 @@ class PlayingState extends BasicGameState {
 		// detect the collision between ball and paddle
 		if (detectCollision(bg.ball, bg.paddle)) {
 			bg.ball.bounce(180);
-			bg.ball.setY(bg.paddle.getY() - radius * 4 / 3);
+			bg.ball.setY(bg.paddle.getY() - radius * 4 / 3);	
+			bg.ball.powerUp(bg);
+			//add powerUp sound 
+			ResourceManager.getSound(BounceGame.GET_POWERUP_RSC).play();
 			bounced = true;
 		}
 		bg.paddle.update(delta);
 
-		for (int i = 0; i < bg.coins.size(); i++) {
-			Bonus cn = bg.coins.get(i);
-			cn.setVelocity(new Vector(-0.015f * i, 0.01f * i));
-			cn.update(delta); // make coin fly
-		}
+	
 
 		// detect the collision between ball and bricks
 		for (int i = 0; i < bg.bricks.size(); i++) {
 			Brick bk = bg.bricks.get(i);
 			if (detectCollision(bg.ball, bk)) {  //treat brick as a paddle to detect collision
-				bg.ball.bounce(180);
+				bg.ball.bounce(180);			
 				bounced = true;
 				if (levels == 1) {
 					bg.bricks.remove(bk); // remove brick from ArrayList
+					ResourceManager.getSound(BounceGame.DROP_BRICK_RSC).play();
 					scores++;
 				} else {
 					bk.update(levels); // destroy the brick
@@ -197,6 +207,7 @@ class PlayingState extends BasicGameState {
 				if (bk.hit_times == 2) { // to destroy pig, fish, zombie, need
 											// hit them twice
 					bg.bricks.remove(bk);
+					ResourceManager.getSound(BounceGame.DROP_BRICK_RSC).play();
 					scores += 2;
 				}
 			}

@@ -27,7 +27,7 @@ public class Bonus extends Entity{
 		super(x, y);
 		addImageWithBoundingBox(ResourceManager
 				.getImage(BounceGame.COIN_RSC));
-		//vx=0.0f;
+	
 		velocity = new Vector(vx, vy);
 		count = 5;
 		countdown = 0;
@@ -59,36 +59,35 @@ public class Bonus extends Entity{
 		switch (levels) {
 		case 1:
 			for (int j = 0; j < 3; j++) {
-				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32*j , -0.01f*j, 0.005f*j);				
-				bg.coin.setVelocity(new Vector(-0.1f, 0.2f));
-				bg.coins.add(bg.coin);
-				
+				Bonus coin = new Bonus(bg.ScreenWidth -32,	32  , -0.01f*j, 0.005f*j);					
+				bg.coins.add(coin);
 			}
 			break;
 		case 2:
 			for (int j = 0; j < 4; j++) {
-				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);			
-				bg.coins.add(bg.coin);
+				Bonus coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);	
+				bg.coins.add(coin);
 			}
 			break;			
 		case 3:
 			for (int j = 0; j < 5; j++) {
-				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);				
-				bg.coins.add(bg.coin);
+				Bonus coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);
+				bg.coins.add(coin);
 			}
 			break;
 		case 4:
 			for (int j = 0; j < 6; j++) {
-				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);				
-				bg.coins.add(bg.coin);
+				Bonus coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);
+				bg.coins.add(coin);
 			}
 			break;
 
 		default:
-			for (int j = 0; j < 3; j++) {
-				bg.coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);				
-				bg.coins.add(bg.coin);
-			}
+//			for (int j = 0; j < 3; j++) {
+//				Bonus coin = new Bonus(bg.ScreenWidth -32,	80 + 32 * j, -0.01f*j, 0.005f*j);	
+			//Bonus coin.setVelocity(new Vector(-0.1f,0.1f-0.02f*j));
+//				bg.coins.add(coin);
+//			}
 			break;
 		}
 	}
@@ -118,15 +117,15 @@ public class Bonus extends Entity{
 	 */
 	public void update(final int delta) {
 		translate(velocity.scale(delta));
-		if (countdown > 0) {
-			countdown -= delta;
-			if (countdown <= 0) {
-				addImageWithBoundingBox(ResourceManager
-						.getImage(BounceGame.COIN_RSC));
-//				removeImage(ResourceManager
+//		if (countdown > 0) {
+//			countdown -= delta;
+//			if (countdown <= 0) {
+//				addImageWithBoundingBox(ResourceManager
 //						.getImage(BounceGame.COIN_RSC));
-			}
-		}
+////				removeImage(ResourceManager
+////						.getImage(BounceGame.COIN_RSC));
+//			}
+//		}
 	}
 	
 

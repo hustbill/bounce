@@ -37,6 +37,25 @@ import jig.Vector;
 	}
 
 	/*
+	 * Power up the ball when ball hit the paddle 
+	 */
+	public void powerUp(BounceGame bg) {
+		System.out.println("******** powerUp begin ************");
+		System.out.println("ball.vx="+ bg.ball.getVelocity().getX());
+		System.out.println("ball.vy="+ bg.ball.getVelocity().getY());
+		if(bg.ball.getVelocity().getY() < 0) {
+			bg.ball.setVelocity(new Vector( bg.ball.getVelocity().getX() *1.1f,  bg.ball.getVelocity().getY()* 1.1f));
+		
+		   }
+		
+		System.out.println("******** powerUp end ************");
+		System.out.println("ball.vx="+ bg.ball.getVelocity().getX());
+		System.out.println("ball.vy="+ bg.ball.getVelocity().getY());
+		
+	}
+	
+	
+	/*
 	 *  Control the velocity of ball in playingState 
 	 */
 	
@@ -61,38 +80,10 @@ import jig.Vector;
 		}
 
 		if (input.isKeyDown(Input.KEY_N)) {
-//			bg.ball.setX( 545.4f);
-//			bg.ball.setY(-8.2f);
 			bg.ball.setX(400.0f);
-			bg.ball.setY(580.0f);
+			bg.ball.setY(540.0f);
 		}
 		
-		// Press C to save your ball
-		if (input.isKeyDown(Input.KEY_C)) {
-			//check point 1
-//			bg.ball.setX( 545.4f);
-//			bg.ball.setY(-8.2f);
-			
-			// check point 2
-//			bg.ball.setX(-10.0f);
-//			bg.ball.setY(288.2f);
-			
-			// check point 3
-//			bg.ball.setX(378.0f);
-//			bg.ball.setY(11.0f);
-			
-			// check point 4
-//			bg.ball.setX(423.0f);
-//			bg.ball.setY(613.0f);			
-	
-			bg.paddle.setX(bg.ball.getX());	
-			bg.paddle.setY(bg.ball.getY());
-//			 if( bg.ball.getCoarseGrainedMinY() > bg.ScreenHeight /2)
-//			 bg.paddle.setY(bg.ball.getY()+ radius*2 );
-//			 if( bg.ball.getCoarseGrainedMinY() < bg.ScreenHeight /2)
-//			 bg.paddle.setY(bg.ball.getY()- radius*2);
-
-		}
 		// Cheat codes to allow user to access all of levels by press "P"
 		if (input.isKeyDown(Input.KEY_P)) {
 			for (int i = 0; i < bg.bricks.size(); i++) {
@@ -100,24 +91,7 @@ import jig.Vector;
 				bg.ball.setY(bk.getY());
 				bg.ball.setX(bk.getX());
 			}
-		
 		}
-		if (input.isKeyDown(Input.KEY_UP)) {
-			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
-					new Vector(.01f, 0)));
-		}
-		if (input.isKeyDown(Input.KEY_DOWN)) {
-			bg.paddle.setVelocity(bg.paddle.getVelocity().add(
-					new Vector(-.01f, 0f)));
-		}
-		
-		if (input.isKeyDown(Input.KEY_LEFT)) {
-			bg.paddle.setVelocity(new Vector(-.15f, 0));
-		}
-		if (input.isKeyDown(Input.KEY_RIGHT)) {
-			bg.paddle.setVelocity(new Vector(.15f, 0f));
-		}
-
 		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
 			bg.ball.bounce(90);
 		}
@@ -142,33 +116,38 @@ import jig.Vector;
 
 	}
 	
+	
+	
+	
 	/*
 	 *  Adjust the velocity, shape, image of ball when levels changed
 	 */
 	public void configBall(StateBasedGame game, int levels) {
 		BounceGame bg = (BounceGame) game;
 		System.out.println("levels= " + levels);
+		bg.ball.setX(400.0f);
+		bg.ball.setY(540.0f);
 		switch (levels) {
 		case 1:
 			bg.ball.scale(1.0f);
-			bg.ball.setVelocity(new Vector(.08f, -.1f));			
+			bg.ball.setVelocity(new Vector(.1f, -.12f));			
 			break;
 		case 2:
-			bg.ball.scale(.95f);
-			bg.ball.setVelocity(new Vector(-.10f, -.12f));
+			bg.ball.scale(.98f);
+			bg.ball.setVelocity(new Vector(-.12f, -.13f));
 			break;			
 		case 3:
-			bg.ball.scale(.90f);
-			bg.ball.setVelocity(new Vector(.11f, -.13f));
+			bg.ball.scale(.95f);
+			bg.ball.setVelocity(new Vector(.13f, -.14f));
 			break;
 		case 4:
-			bg.ball.scale(.85f);
-			bg.ball.setVelocity(new Vector(-.12f, -.14f));
+			bg.ball.scale(.92f);
+			bg.ball.setVelocity(new Vector(-.14f, -.15f));
 			break;
 
 		default:
-			bg.ball.scale(.90f);
-			bg.ball.setVelocity(new Vector(.10f, -.11f));
+			bg.ball.scale(.92f);
+			bg.ball.setVelocity(new Vector(.12f, -.14f));
 			break;
 		}
 	}

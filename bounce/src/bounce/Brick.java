@@ -48,7 +48,7 @@ public class Brick extends Entity {
 			for (int i = 0; i < 17; i ++) {
 				for (int j = 0; j < 3; j++) {
 					bg.brick = new Brick(bg.ScreenWidth / 7 + 36 * i,
-					bg.ScreenHeight * 1 / 7 + 32 * j);
+							bg.ScreenHeight * 1 / 7 + 32 * j);
 					bg.bricks.add(bg.brick);
 				}
 			}

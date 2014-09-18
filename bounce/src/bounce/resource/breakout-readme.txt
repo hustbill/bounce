@@ -10,33 +10,48 @@ Completed features
 2. A paddle that can be controlled by the user that influences the path of the ball.
 3. Bricks that are placed in some configuration near the top of the screen 
 5. Corrected collision response for the ball, so it doesn't get caught in the walls or in bricks.
-6. A "Lives Remaining" indicator that shows the player initially has three lives. These should decrease
-each time the ball goes past the bottom of the screen (perhaps in other situations too?).
-7. When no lives are left, the game should display a "Game Over" message
+6. A "Lives Remaining" indicator that shows the player initially has three lives. 
+7. When no lives are left, the game display a "Game Over" message
 8. A customized splash screen with your name.
 9. A progression of four levels in which the game gets slightly more difficult. 
+10. Add a progression of four levels: brick, pig, fish, zombie. The later three destroyed when ball hit twice
+11. Corrected collision response for the ball, so it doesn't get caught in walls or in bricks.
+12. A customized splash screen with the player's name
+13. A bonus -coins will fall from top of the screen, if paddle hit it, each coin equals 10 points
+14. Powerup, when the ball hit the paddle, its speed will increase 1.1 each time
+15. Custom sounds( game start, hit the bricks)
+16. Persistent high score tracking, a brick is one point, a pig,fish and zombie equal two points
+
+
 
 Breakout Game Controls
 -------------------------
 MOUSE
-Paddle Left: Mouse Left
-Paddle Right: Mouse Right
-New Ball: Mouse Button
+Ball bounce (90): Mouse Left
+Ball bounce (180): Mouse Right
+
+
 KEYBOARD
-Paddle Left: Left Key
-Paddle Right: Right Key
-New Ball: Space
-Main Screen: Escape
-Increase Paddle Speed: Up Key
-Decrease Paddle Speed: Down Key
-Level Builder: b
-Cheats/Test goodies:
 
-Double Paddle Width: 0
-Half Paddle Width: 1
-Add Ball: 2
-Duplicate Ball: 3
+Paddle Left:	 	Left Arrow    
+Paddle Right: 		Right Arrow   
+Paddle Stop :      	Down 
 
+Ball  Left:		    A 
+Ball  Right:		D 
+Ball  UP:		    W
+Ball  Down:         S
+
+Reset Ball:   		N 
+Bomb : 				B 
+Save the life:      C 
+
+Score Screen: 	    Home 
+Cheats/Test:        P    
 
 ToDos and known issues
 ---------------------------
+1. add a bomb to destroy remains three bricks one time, to move forward to next level 
+2. select or input the player name
+3. Paddle will be caught in the walls  when the speed increase to higher .
+
