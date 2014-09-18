@@ -36,6 +36,7 @@ class PlayingState extends BasicGameState {
 		BounceGame bg = (BounceGame) game;
 		if (levels <= 4) {
 			lives = 3; // reset the lives to 3 for each level
+			ResourceManager.getSound(BounceGame.START_GAME_RSC).play();
 			bg.brick.configBricks(game, levels);
 			bg.paddle.configPaddle(game, levels);
 			bg.ball.configBall(game, levels);
