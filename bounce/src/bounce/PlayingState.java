@@ -34,6 +34,7 @@ class PlayingState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		BounceGame bg = (BounceGame) game;
+
 		if (levels <= 4) {
 			lives = 3; // reset the lives to 3 for each level
 			ResourceManager.getSound(BounceGame.START_GAME_RSC).play();
@@ -154,20 +155,20 @@ class PlayingState extends BasicGameState {
 		}
 		// detect the collision between coin and paddle
 		for (int i = 0; i < bg.coins.size(); i++) {
-			Bonus cn = bg.coins.get(i);
-			cn.setVelocity(new Vector(-0.015f * i, 0.01f * i));
+			Bonus cn = bg.coins.get(i);		
 			if (detectCollision(cn, bg.paddle)) {
 				bg.coins.remove(cn); // remove coin from ArrayList
+				ResourceManager.getSound(BounceGame.PICKED_COIN_RSC).play();
+				//coin sound http://www.freesound.org/people/NenadSimic/sounds/171696/
 				scores += 10; // one coin equals 10 points
 			}else{
 				if(cn.getCoarseGrainedMaxX() > bg.ScreenWidth ||
 						cn.getCoarseGrainedMinX() <0 ||
 						cn.getCoarseGrainedMaxY() > bg.ScreenHeight) {
-					bg.coins.remove(cn);
+					bg.coins.remove(cn);					
 				}
 			}
 		}
-		
 
 		// move the paddle ...
 		if (bg.paddle.getCoarseGrainedMaxX() > bg.ScreenWidth
@@ -180,6 +181,8 @@ class PlayingState extends BasicGameState {
 			bg.ball.bounce(180);
 			bg.ball.setY(bg.paddle.getY() - radius * 4 / 3);	
 			bg.ball.powerUp(bg);
+			//add powerUp sound 
+			ResourceManager.getSound(BounceGame.GET_POWERUP_RSC).play();
 			bounced = true;
 		}
 		bg.paddle.update(delta);
@@ -194,6 +197,7 @@ class PlayingState extends BasicGameState {
 				bounced = true;
 				if (levels == 1) {
 					bg.bricks.remove(bk); // remove brick from ArrayList
+					ResourceManager.getSound(BounceGame.DROP_BRICK_RSC).play();
 					scores++;
 				} else {
 					bk.update(levels); // destroy the brick
@@ -203,6 +207,7 @@ class PlayingState extends BasicGameState {
 				if (bk.hit_times == 2) { // to destroy pig, fish, zombie, need
 											// hit them twice
 					bg.bricks.remove(bk);
+					ResourceManager.getSound(BounceGame.DROP_BRICK_RSC).play();
 					scores += 2;
 				}
 			}

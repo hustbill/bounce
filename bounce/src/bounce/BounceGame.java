@@ -63,6 +63,9 @@ public class BounceGame extends StateBasedGame {
 	public static final String BANG_EXPLOSIONIMG_RSC = "bounce/resource/explosion.png";
 	public static final String BANG_EXPLOSIONSND_RSC = "bounce/resource/explosion.wav";
 	public static final String START_GAME_RSC = "bounce/resource/gameStart.ogg";
+	public static final String GET_POWERUP_RSC=  "bounce/resource/getPowerup.wav";
+	public static final String PICKED_COIN_RSC =  "bounce/resource/pickedCoin.wav";
+	public static final String DROP_BRICK_RSC =  "bounce/resource/dropBrick.wav";
 	// Sound resources courtesy of plasterbrain__game-start
 	// http://www.freesound.org/people/plasterbrain/sounds/243020/
 
@@ -116,6 +119,9 @@ public class BounceGame extends StateBasedGame {
 		// attempt to do in the startUp() method.
 		ResourceManager.loadSound(BANG_EXPLOSIONSND_RSC);	
 		ResourceManager.loadSound(START_GAME_RSC);
+		ResourceManager.loadSound(GET_POWERUP_RSC);
+		ResourceManager.loadSound(PICKED_COIN_RSC);
+		ResourceManager.loadSound(DROP_BRICK_RSC);
 
 		// preload all the resources to avoid warnings & minimize latency...
 		ResourceManager.loadImage(PADDLE_RSC);
