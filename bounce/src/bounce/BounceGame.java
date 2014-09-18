@@ -133,10 +133,10 @@ public class BounceGame extends StateBasedGame {
 		ResourceManager.loadImage(BANG_EXPLOSIONIMG_RSC);
 		
 		
-		ball = new Ball(ScreenWidth / 2, ScreenHeight -60, .006f, -.006f);
+		ball = new Ball(ScreenWidth / 2, ScreenHeight -60, .1f, -.12f);
 		paddle = new Paddle(ScreenWidth / 2, ScreenHeight -40  , .0f, .0f, 90.0f);
 		brick = new Brick(ScreenWidth / 7 , ScreenHeight * 1/5 );
-		coin = new Bonus(300.0f, 32.0f, 0.0f, 0.0f);
+		coin = new Bonus(300.0f, 32.0f, -.01f, 0.01f);
 
 	}
 	
