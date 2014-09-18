@@ -46,8 +46,7 @@ public class ConfigState extends BasicGameState {
 		// TODO Auto-generated method stub
 
 	}
-	
-	
+		
 	public void enter(GameContainer container, StateBasedGame game) {
 		// lives = 3;
 		// bounces = 0;
