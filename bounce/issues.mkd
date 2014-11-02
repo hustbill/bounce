@@ -21,3 +21,4 @@
 
 ## Open Issues ##
 - **[19]** Persistent high score tracking in XML file
+- **[20]** Isometric projection demo
