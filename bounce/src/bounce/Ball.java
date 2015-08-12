@@ -1,5 +1,7 @@
 package bounce;
 
+import java.awt.Point;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
@@ -22,8 +24,10 @@ import jig.Vector;
 
 	public Ball(final float x, final float y, final float vx, final float vy) {
 		super(x, y);
-		addImageWithBoundingBox(ResourceManager
-				.getImage(BounceGame.BALL_BALLIMG_RSC));
+		
+//		
+//		addImageWithBoundingBox(ResourceManager
+//				.getImage(BounceGame.BALL_BALLIMG_RSC));
 		velocity = new Vector(vx, vy);
 		countdown = 0;
 	}
@@ -36,24 +40,6 @@ import jig.Vector;
 		return velocity;
 	}
 
-	/*
-	 * Power up the ball when ball hit the paddle 
-	 */
-	public void powerUp(BounceGame bg) {
-		System.out.println("******** powerUp begin ************");
-		System.out.println("ball.vx="+ bg.ball.getVelocity().getX());
-		System.out.println("ball.vy="+ bg.ball.getVelocity().getY());
-		if(bg.ball.getVelocity().getY() < 0) {
-			bg.ball.setVelocity(new Vector( bg.ball.getVelocity().getX() *1.1f,  bg.ball.getVelocity().getY()* 1.1f));
-		
-		   }
-		
-		System.out.println("******** powerUp end ************");
-		System.out.println("ball.vx="+ bg.ball.getVelocity().getX());
-		System.out.println("ball.vy="+ bg.ball.getVelocity().getY());
-		
-	}
-	
 	
 	/*
 	 *  Control the velocity of ball in playingState 
@@ -62,19 +48,19 @@ import jig.Vector;
 	public void controlBall(Input input, BounceGame bg) 
 			throws SlickException{
 		
-		if (input.isKeyDown(Input.KEY_W)) {
-			bg.ball.setVelocity(bg.ball.getVelocity().add(
-					new Vector(0f, -.001f)));
+		if (input.isKeyDown(Input.KEY_7)) {
+			bg.ball.setX(bg.ball.getX() +3.2f);
+			bg.ball.setY(bg.ball.getY() + 3.2f/2);
 		}
-		if (input.isKeyDown(Input.KEY_S)) {
+		if (input.isKeyDown(Input.KEY_9)) {
 			bg.ball.setVelocity(bg.ball.getVelocity().add(
 					new Vector(0f, +.001f)));
 		}
-		if (input.isKeyDown(Input.KEY_A)) {
+		if (input.isKeyDown(Input.KEY_1)) {
 			bg.ball.setVelocity(bg.ball.getVelocity()
 					.add(new Vector(-.001f, 0)));
 		}
-		if (input.isKeyDown(Input.KEY_D)) {
+		if (input.isKeyDown(Input.KEY_3)) {
 			bg.ball.setVelocity(bg.ball.getVelocity().add(
 					new Vector(+.001f, 0f)));
 		}
@@ -130,7 +116,7 @@ import jig.Vector;
 		switch (levels) {
 		case 1:
 			bg.ball.scale(1.0f);
-			bg.ball.setVelocity(new Vector(.1f, -.12f));			
+			//bg.ball.setVelocity(new Vector(.02f, -.02f));			
 			break;
 		case 2:
 			bg.ball.scale(.98f);
@@ -152,7 +138,11 @@ import jig.Vector;
 		}
 	}
 	
-	
+
+	  
+
+
+	  
 	/**
 	 * Bounce the ball off a surface. This simple implementation, combined
 	 * with the test used when calling this method can cause "issues" in

@@ -47,7 +47,7 @@ public class BounceGame extends StateBasedGame {
 	public static final int GAMEOVERSTATE = 2;
 	public static final int CONFIGSTATE =3;
 	
-	public static final String BRICK_RSC = "bounce/resource/brick.png";
+	public static final String BRICK_RSC = "bounce/resource/grass0.png";
 	public static final String PIG_RSC = "bounce/resource/pig.png";
 	public static final String FISH_RSC = "bounce/resource/fish.png";
 	public static final String ZOMBIE_RSC = "bounce/resource/zombie.png";
@@ -55,7 +55,7 @@ public class BounceGame extends StateBasedGame {
 	public static final String COIN_RSC = "bounce/resource/coin.png";
 	
 	public static final String PADDLE_RSC = "bounce/resource/paddle.png";
-	public static final String BALL_BALLIMG_RSC = "bounce/resource/ball.png";	
+	public static final String BALL_BALLIMG_RSC = "bounce/resource/walk_20008.png";	
 	public static final String BALL_BROKENIMG_RSC = "bounce/resource/brokenball.png";
 	public static final String YOUWIN_BANNER_RSC = "bounce/resource/youwin.png";
 	public static final String GAMEOVER_BANNER_RSC = "bounce/resource/gameover.png";
@@ -66,6 +66,11 @@ public class BounceGame extends StateBasedGame {
 	public static final String GET_POWERUP_RSC=  "bounce/resource/getPowerup.wav";
 	public static final String PICKED_COIN_RSC =  "bounce/resource/pickedCoin.wav";
 	public static final String DROP_BRICK_RSC =  "bounce/resource/dropBrick.wav";
+	
+	public static final String SURFACE_RSC = "bounce/resource/surface.png";
+	public static final String SPRITE_SHEET_RSC = "bounce/resource/2_Farmer_Walk_strip15.png";
+	//4_Farmer_wCan_strip18
+	//public static final String SPRITE_SHEET_RSC = "bounce/resource/4_Farmer_wCan_strip18.png";
 	// Sound resources courtesy of plasterbrain__game-start
 	// http://www.freesound.org/people/plasterbrain/sounds/243020/
 
@@ -74,7 +79,7 @@ public class BounceGame extends StateBasedGame {
 	public int levels =1;
 
 	Ball ball;
-	Paddle paddle;
+
 	Brick brick;
 	Bonus coin;
 	
@@ -138,9 +143,12 @@ public class BounceGame extends StateBasedGame {
 		ResourceManager.loadImage(YOUWIN_BANNER_RSC);
 		ResourceManager.loadImage(BANG_EXPLOSIONIMG_RSC);
 		
+		ResourceManager.loadImage(SURFACE_RSC);
+		ResourceManager.loadImage(SPRITE_SHEET_RSC);
 		
-		ball = new Ball(ScreenWidth / 2, ScreenHeight -60, .1f, -.12f);
-		paddle = new Paddle(ScreenWidth / 2, ScreenHeight -40  , .0f, .0f, 90.0f);
+		
+		ball = new Ball(ScreenWidth / 2, ScreenHeight -60, 0, 0);
+		
 		brick = new Brick(ScreenWidth / 7 , ScreenHeight * 1/5 );
 		coin = new Bonus(300.0f, 32.0f, -.01f, 0.01f);
 

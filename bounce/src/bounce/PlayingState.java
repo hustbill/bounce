@@ -39,10 +39,10 @@ class PlayingState extends BasicGameState {
 			lives = 3; // reset the lives to 3 for each level
 			ResourceManager.getSound(BounceGame.START_GAME_RSC).play();
 			bg.brick.configBricks(game, levels);
-			bg.paddle.configPaddle(game, levels);
 			bg.ball.configBall(game, levels);
 			bg.coin.configBonus(game, levels);
 		}
+		
 		// System.out.println("init playingState, initial lives=" + lives);
 	}
 
@@ -54,14 +54,17 @@ class PlayingState extends BasicGameState {
 		container.setSoundOn(true);
 
 	}
+	
+	
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		BounceGame bg = (BounceGame) game;
+		g.drawImage(ResourceManager.getImage(BounceGame.SURFACE_RSC), 0, 0);
 
 		bg.ball.render(g);
-		bg.paddle.render(g);
+		
 		// bg.coin.render(g);
 		for (Brick bk : bg.bricks)
 			bk.render(g);
@@ -102,7 +105,6 @@ class PlayingState extends BasicGameState {
 			}
 		}
 		bg.ball.controlBall(input, bg); // control velocity of ball by press Keys
-		bg.paddle.controlPaddle(input,bg);
 		if (input.isKeyDown(Input.KEY_HOME))
 			bg.enterState(BounceGame.CONFIGSTATE);
 
@@ -134,7 +136,6 @@ class PlayingState extends BasicGameState {
 				&& bg.ball.getVelocity().getY() > 0) {
 			lives--;
 			// reset position & velocity of paddle and ball
-			bg.paddle.configPaddle(game, levels); 
 			bg.ball.configBall(game, levels);
 			//bg.coin.configBonus(game, levels);
 			
@@ -153,39 +154,7 @@ class PlayingState extends BasicGameState {
 			cn.update(delta); // make coin fly
 			
 		}
-		// detect the collision between coin and paddle
-		for (int i = 0; i < bg.coins.size(); i++) {
-			Bonus cn = bg.coins.get(i);		
-			if (detectCollision(cn, bg.paddle)) {
-				bg.coins.remove(cn); // remove coin from ArrayList
-				ResourceManager.getSound(BounceGame.PICKED_COIN_RSC).play();
-				//coin sound http://www.freesound.org/people/NenadSimic/sounds/171696/
-				scores += 10; // one coin equals 10 points
-			}else{
-				if(cn.getCoarseGrainedMaxX() > bg.ScreenWidth ||
-						cn.getCoarseGrainedMinX() <0 ||
-						cn.getCoarseGrainedMaxY() > bg.ScreenHeight) {
-					bg.coins.remove(cn);					
-				}
-			}
-		}
-
-		// move the paddle ...
-		if (bg.paddle.getCoarseGrainedMaxX() > bg.ScreenWidth
-				|| bg.paddle.getCoarseGrainedMinX() < 0) {
-			bg.paddle.bounce(90);
-
-		}
-		// detect the collision between ball and paddle
-		if (detectCollision(bg.ball, bg.paddle)) {
-			bg.ball.bounce(180);
-			bg.ball.setY(bg.paddle.getY() - radius * 4 / 3);	
-			bg.ball.powerUp(bg);
-			//add powerUp sound 
-			ResourceManager.getSound(BounceGame.GET_POWERUP_RSC).play();
-			bounced = true;
-		}
-		bg.paddle.update(delta);
+	
 
 	
 
