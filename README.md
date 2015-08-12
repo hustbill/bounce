@@ -1,0 +1,24 @@
+## Resolved Issues ##
+
+- **[1]** Need a skeletal, executable game
+- **[2]** Add a bouncing ball
+- **[3]** Add initial eyecandy, score tracking and bounce counter
+- **[4]** Add keyboard controls for ball
+- **[5]** Add StartUp and GameOver states
+- **[6]** Add explosion sound
+- **[7]** Use a proper Slick StateBasedGame.
+- **[8]** Use fully specified resource path, preload resources if possible
+- **[9]** Add a paddle that can be controlled by the user, add bricks which destroyed when ball hit
+- **[10]** Add a "Lives Remaining" indicator
+- **[11]** Cheat codes to allow user to access all of levels by press "P"
+- **[12]** Add a progression of four levels
+- **[13]** Corrected collision response for the ball, so it doesn't get caught in walls or in bricks.
+- **[14]** Add a customized splash screen with the player's name
+- **[15]** Fix the bug- ball get caught in the walls.
+- **[16]** Modify lives change model, ball go to bottom, lost one life
+- **[17]** Add bonus class to raise the interest and fun
+- **[18]** Add sound for pickup coin, drop a brick and powerup the ball
+
+## Open Issues ##
+- **[19]** Persistent high score tracking in XML file
+- **[20]** Isometric projection demo
