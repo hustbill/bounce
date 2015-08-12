@@ -88,19 +88,20 @@ class StartUpState extends BasicGameState {
 	  private GhostTiles alienTop;
 	  private Random random ;
 	  private SpriteSheet ss=  ResourceManager.getSpriteSheet(BounceGame.SPRITE_SHEET_RSC, 47, 60);
+	 // private SpriteSheet ss=  ResourceManager.getSpriteSheet(BounceGame.SPRITE_SHEET_RSC, 64, 64);
 	  
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		  // initialise the loaders
-	    ImagesLoader imsLoader = new ImagesLoader(IMS_INFO);
-	    clipsLoader = new ClipsLoader(SNDS_FILE); 
+	  //  ImagesLoader imsLoader = new ImagesLoader(IMS_INFO);
+	   // clipsLoader = new ClipsLoader(SNDS_FILE); 
 
 	    // create the world, the player, and aliens
-	    createWorld(imsLoader); 
+	   // createWorld(imsLoader); 
 	    
 	 // prepare title/help screen
-	    helpIm = imsLoader.getImage("title");
+	    //helpIm = imsLoader.getImage("title");
 	    showHelp = true;    // show at start-up
 	    isPaused = true;
 
@@ -108,6 +109,8 @@ class StartUpState extends BasicGameState {
 	    msgsFont = new Font("SansSerif", Font.BOLD, 24);
 	    //metrics = this.getFontMetrics(msgsFont);
 	     random = new Random(); // for random change the sprite image.
+	    BounceGame bg= (BounceGame)game;
+			bg.brick.configBricks(game, 1);
 	   
 	}
 	
@@ -133,13 +136,7 @@ class StartUpState extends BasicGameState {
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
 		container.setSoundOn(false);
-//		 long period = (long) 1000.0/60;
-//		    // System.out.println("fps: " + DEFAULT_FPS + "; period: " + period + " ms");
-//		   //new AlienTiles(period*1000000L);    // ms --> nanosecs 
-//		    //new AlienTilesPanel( period);
-//	
-//		    // System.out.println("fps: " + DEFAULT_FPS + "; period: " + period + " ms");
-//		    new GhostTiles(period*1000000L);    // ms --> nanosecs 
+
 	}
 
 
@@ -149,7 +146,8 @@ class StartUpState extends BasicGameState {
 		BounceGame bg = (BounceGame)game;
 //		g.drawImage(ResourceManager.getImage(BounceGame.SURFACE_RSC),
 //				10, 10);	
-		
+		for (Brick bk : bg.bricks)
+			bk.render(g);
 
 		
 	
@@ -180,7 +178,7 @@ class StartUpState extends BasicGameState {
 //	      dbg.fillRect(0, 0, PWIDTH/2, PHEIGHT/2);
 
 	      // draw the game elements: order is important
-	      world.draw(g);  
+	    //  world.draw(g);  
 	     /* WorldDisplay draws the game world: the tile floor, blocks, 
 	         pickups, and the sprites. */
 
@@ -194,7 +192,7 @@ class StartUpState extends BasicGameState {
 //	        g.drawImage(helpIm, (PWIDTH-helpIm.getWidth())/2, 
 //	                            (PHEIGHT-helpIm.getHeight())/2);
 	      
-	      player.drawSprite(g);
+	     // player.drawSprite(g);
 			//bg.ball.render(g);
 			
 //	    	Image bigImg = ResourceManager.getImage(BounceGame.SPRITE_SHEET_RSC);
@@ -243,7 +241,22 @@ class StartUpState extends BasicGameState {
 		
 		bg.ball.removeImage(ss.getSubImage(count%14, 0));
 		
+	
+		
 		 float x = (60*delta) /1000.0f;
+//		  if(bg.ball.getY() > 32) {
+//			bg.ball.setY(bg.ball.getY() - x/2);
+//			count++; 
+//			try {
+//				Thread.sleep(10);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		  }
+//		  else{
+//			  bg.ball.setY(32.0f);
+//		  }
 //		 // move the player based on the numpad key pressed
 		if (input.isKeyDown(Input.KEY_7)) {
 			count++; 

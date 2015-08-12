@@ -47,7 +47,7 @@ public class BounceGame extends StateBasedGame {
 	public static final int GAMEOVERSTATE = 2;
 	public static final int CONFIGSTATE =3;
 	
-	public static final String BRICK_RSC = "bounce/resource/brick.png";
+	public static final String BRICK_RSC = "bounce/resource/grass0.png";
 	public static final String PIG_RSC = "bounce/resource/pig.png";
 	public static final String FISH_RSC = "bounce/resource/fish.png";
 	public static final String ZOMBIE_RSC = "bounce/resource/zombie.png";
@@ -69,6 +69,8 @@ public class BounceGame extends StateBasedGame {
 	
 	public static final String SURFACE_RSC = "bounce/resource/surface.png";
 	public static final String SPRITE_SHEET_RSC = "bounce/resource/2_Farmer_Walk_strip15.png";
+	//4_Farmer_wCan_strip18
+	//public static final String SPRITE_SHEET_RSC = "bounce/resource/4_Farmer_wCan_strip18.png";
 	// Sound resources courtesy of plasterbrain__game-start
 	// http://www.freesound.org/people/plasterbrain/sounds/243020/
 
