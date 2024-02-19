@@ -1,0 +1,532 @@
+Tue Sep 16 22:43:41 PDT 2014 INFO:Slick Build #237
+Tue Sep 16 22:43:41 PDT 2014 INFO:LWJGL Version: 2.9.0
+Tue Sep 16 22:43:41 PDT 2014 INFO:OriginalDisplayMode: 1920 x 1080 x 32 @0Hz
+Tue Sep 16 22:43:41 PDT 2014 INFO:TargetDisplayMode: 800 x 600 x 0 @0Hz
+Tue Sep 16 22:43:41 PDT 2014 INFO:Starting display 800x600
+Tue Sep 16 22:43:41 PDT 2014 INFO:Use Java PNG Loader = true
+Loading: net.java.games.input.OSXEnvironmentPlugin
+Tue Sep 16 22:43:41 PDT 2014 INFO:Found 0 controllers
+Tue Sep 16 22:43:41 PDT 2014 INFO:Initialising sounds..
+Tue Sep 16 22:43:42 PDT 2014 INFO:- Sound works
+Tue Sep 16 22:43:42 PDT 2014 INFO:- 64 OpenAL source available
+Tue Sep 16 22:43:42 PDT 2014 INFO:- Sounds source generated
+levels= 1
+levels= 1
+levels= 1
+***** check point 1 begin *********
+ball.x = 451.3002ball.y =402.59998
+bg.ball.getCoarseGrainedMinY()=386.59998
+bg.ball.getCoarseGrainedMaxY()=418.59998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 452.9002ball.y =405.8
+bg.ball.getCoarseGrainedMinY()=389.8
+bg.ball.getCoarseGrainedMaxY()=421.8
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 454.60022ball.y =409.19998
+bg.ball.getCoarseGrainedMinY()=393.19998
+bg.ball.getCoarseGrainedMaxY()=425.19998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 456.30023ball.y =412.59998
+bg.ball.getCoarseGrainedMinY()=396.59998
+bg.ball.getCoarseGrainedMaxY()=428.59998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 458.00024ball.y =415.99997
+bg.ball.getCoarseGrainedMinY()=399.99997
+bg.ball.getCoarseGrainedMaxY()=431.99997
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 459.60025ball.y =419.19998
+bg.ball.getCoarseGrainedMinY()=403.19998
+bg.ball.getCoarseGrainedMaxY()=435.19998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 461.30026ball.y =422.59998
+bg.ball.getCoarseGrainedMinY()=406.59998
+bg.ball.getCoarseGrainedMaxY()=438.59998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 463.00027ball.y =425.99997
+bg.ball.getCoarseGrainedMinY()=409.99997
+bg.ball.getCoarseGrainedMaxY()=441.99997
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 464.7003ball.y =429.39996
+bg.ball.getCoarseGrainedMinY()=413.39996
+bg.ball.getCoarseGrainedMaxY()=445.39996
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 466.3003ball.y =432.59998
+bg.ball.getCoarseGrainedMinY()=416.59998
+bg.ball.getCoarseGrainedMaxY()=448.59998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 468.0003ball.y =435.99997
+bg.ball.getCoarseGrainedMinY()=419.99997
+bg.ball.getCoarseGrainedMaxY()=451.99997
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 469.70032ball.y =439.39996
+bg.ball.getCoarseGrainedMinY()=423.39996
+bg.ball.getCoarseGrainedMaxY()=455.39996
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 471.40033ball.y =442.79996
+bg.ball.getCoarseGrainedMinY()=426.79996
+bg.ball.getCoarseGrainedMaxY()=458.79996
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 473.00034ball.y =445.99997
+bg.ball.getCoarseGrainedMinY()=429.99997
+bg.ball.getCoarseGrainedMaxY()=461.99997
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 474.70035ball.y =449.39996
+bg.ball.getCoarseGrainedMinY()=433.39996
+bg.ball.getCoarseGrainedMaxY()=465.39996
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 476.30035ball.y =452.59998
+bg.ball.getCoarseGrainedMinY()=436.59998
+bg.ball.getCoarseGrainedMaxY()=468.59998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 478.00037ball.y =455.99997
+bg.ball.getCoarseGrainedMinY()=439.99997
+bg.ball.getCoarseGrainedMaxY()=471.99997
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 479.60037ball.y =459.19998
+bg.ball.getCoarseGrainedMinY()=443.19998
+bg.ball.getCoarseGrainedMaxY()=475.19998
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 481.40036ball.y =462.8
+bg.ball.getCoarseGrainedMinY()=446.8
+bg.ball.getCoarseGrainedMaxY()=478.8
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 483.00037ball.y =466.0
+bg.ball.getCoarseGrainedMinY()=450.0
+bg.ball.getCoarseGrainedMaxY()=482.0
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 484.60037ball.y =469.2
+bg.ball.getCoarseGrainedMinY()=453.2
+bg.ball.getCoarseGrainedMaxY()=485.2
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 486.30038ball.y =472.6
+bg.ball.getCoarseGrainedMinY()=456.6
+bg.ball.getCoarseGrainedMaxY()=488.6
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 488.0004ball.y =476.0
+bg.ball.getCoarseGrainedMinY()=460.0
+bg.ball.getCoarseGrainedMaxY()=492.0
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 489.7004ball.y =479.4
+bg.ball.getCoarseGrainedMinY()=463.4
+bg.ball.getCoarseGrainedMaxY()=495.4
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 491.40042ball.y =482.8
+bg.ball.getCoarseGrainedMinY()=466.8
+bg.ball.getCoarseGrainedMaxY()=498.8
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 493.00043ball.y =486.0
+bg.ball.getCoarseGrainedMinY()=470.0
+bg.ball.getCoarseGrainedMaxY()=502.0
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 494.60043ball.y =489.2
+bg.ball.getCoarseGrainedMinY()=473.2
+bg.ball.getCoarseGrainedMaxY()=505.2
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 496.30045ball.y =492.6
+bg.ball.getCoarseGrainedMinY()=476.6
+bg.ball.getCoarseGrainedMaxY()=508.6
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 498.10043ball.y =496.2
+bg.ball.getCoarseGrainedMinY()=480.2
+bg.ball.getCoarseGrainedMaxY()=512.2
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 499.70044ball.y =499.40002
+bg.ball.getCoarseGrainedMinY()=483.40002
+bg.ball.getCoarseGrainedMaxY()=515.4
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 501.30045ball.y =502.60004
+bg.ball.getCoarseGrainedMinY()=486.60004
+bg.ball.getCoarseGrainedMaxY()=518.60004
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 503.10043ball.y =506.20004
+bg.ball.getCoarseGrainedMinY()=490.20004
+bg.ball.getCoarseGrainedMaxY()=522.2001
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 504.70044ball.y =509.40005
+bg.ball.getCoarseGrainedMinY()=493.40005
+bg.ball.getCoarseGrainedMaxY()=525.4
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 506.60043ball.y =513.2001
+bg.ball.getCoarseGrainedMinY()=497.20007
+bg.ball.getCoarseGrainedMaxY()=529.2001
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 508.00043ball.y =516.00006
+bg.ball.getCoarseGrainedMinY()=500.00006
+bg.ball.getCoarseGrainedMaxY()=532.00006
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 509.70044ball.y =519.4001
+bg.ball.getCoarseGrainedMinY()=503.4001
+bg.ball.getCoarseGrainedMaxY()=535.4001
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 511.40045ball.y =522.8001
+bg.ball.getCoarseGrainedMinY()=506.8001
+bg.ball.getCoarseGrainedMaxY()=538.8001
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 513.10046ball.y =526.20013
+bg.ball.getCoarseGrainedMinY()=510.20013
+bg.ball.getCoarseGrainedMaxY()=542.20013
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 514.70044ball.y =529.40015
+bg.ball.getCoarseGrainedMinY()=513.40015
+bg.ball.getCoarseGrainedMaxY()=545.40015
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 516.40045ball.y =532.8002
+bg.ball.getCoarseGrainedMinY()=516.8002
+bg.ball.getCoarseGrainedMaxY()=548.8002
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 518.10046ball.y =536.2002
+bg.ball.getCoarseGrainedMinY()=520.2002
+bg.ball.getCoarseGrainedMaxY()=552.2002
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 520.40045ball.y =540.8002
+bg.ball.getCoarseGrainedMinY()=524.8002
+bg.ball.getCoarseGrainedMaxY()=556.8002
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 521.40045ball.y =542.8002
+bg.ball.getCoarseGrainedMinY()=526.8002
+bg.ball.getCoarseGrainedMaxY()=558.8002
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 523.10046ball.y =546.2002
+bg.ball.getCoarseGrainedMinY()=530.2002
+bg.ball.getCoarseGrainedMaxY()=562.2002
+ball.vx= 0.1
+ball.vY= 0.2
+***** check point 1 end *********
+collision with paddle!
+
+delta_x = 18.89978
+delta_y = 20.599792
+***** check point 1 begin *********
+ball.x = 524.70044ball.y =548.6667
+bg.ball.getCoarseGrainedMinY()=532.6667
+bg.ball.getCoarseGrainedMaxY()=564.6667
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 526.8004ball.y =544.4667
+bg.ball.getCoarseGrainedMinY()=528.4667
+bg.ball.getCoarseGrainedMaxY()=560.4667
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 528.1004ball.y =541.8667
+bg.ball.getCoarseGrainedMinY()=525.8667
+bg.ball.getCoarseGrainedMaxY()=557.8667
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 529.7004ball.y =538.6667
+bg.ball.getCoarseGrainedMinY()=522.6667
+bg.ball.getCoarseGrainedMaxY()=554.6667
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 531.4004ball.y =535.26666
+bg.ball.getCoarseGrainedMinY()=519.26666
+bg.ball.getCoarseGrainedMaxY()=551.26666
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 533.1004ball.y =531.86664
+bg.ball.getCoarseGrainedMinY()=515.86664
+bg.ball.getCoarseGrainedMaxY()=547.86664
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 534.8004ball.y =528.4666
+bg.ball.getCoarseGrainedMinY()=512.4666
+bg.ball.getCoarseGrainedMaxY()=544.4666
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 536.4004ball.y =525.2666
+bg.ball.getCoarseGrainedMinY()=509.2666
+bg.ball.getCoarseGrainedMaxY()=541.2666
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 538.00037ball.y =522.0666
+bg.ball.getCoarseGrainedMinY()=506.0666
+bg.ball.getCoarseGrainedMaxY()=538.0666
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 539.7004ball.y =518.66656
+bg.ball.getCoarseGrainedMinY()=502.66656
+bg.ball.getCoarseGrainedMaxY()=534.66656
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 541.4004ball.y =515.26654
+bg.ball.getCoarseGrainedMinY()=499.26654
+bg.ball.getCoarseGrainedMaxY()=531.26654
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 543.1004ball.y =511.86655
+bg.ball.getCoarseGrainedMinY()=495.86655
+bg.ball.getCoarseGrainedMaxY()=527.8666
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 544.8004ball.y =508.46655
+bg.ball.getCoarseGrainedMinY()=492.46655
+bg.ball.getCoarseGrainedMaxY()=524.46655
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 546.4004ball.y =505.26654
+bg.ball.getCoarseGrainedMinY()=489.26654
+bg.ball.getCoarseGrainedMaxY()=521.26654
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 548.1004ball.y =501.86655
+bg.ball.getCoarseGrainedMinY()=485.86655
+bg.ball.getCoarseGrainedMaxY()=517.8666
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 549.7004ball.y =498.66653
+bg.ball.getCoarseGrainedMinY()=482.66653
+bg.ball.getCoarseGrainedMaxY()=514.6665
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 551.50037ball.y =495.06653
+bg.ball.getCoarseGrainedMinY()=479.06653
+bg.ball.getCoarseGrainedMaxY()=511.06653
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 553.10034ball.y =491.86652
+bg.ball.getCoarseGrainedMinY()=475.86652
+bg.ball.getCoarseGrainedMaxY()=507.86652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 554.80035ball.y =488.46652
+bg.ball.getCoarseGrainedMinY()=472.46652
+bg.ball.getCoarseGrainedMaxY()=504.46652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 556.4003ball.y =485.2665
+bg.ball.getCoarseGrainedMinY()=469.2665
+bg.ball.getCoarseGrainedMaxY()=501.2665
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 558.10034ball.y =481.86652
+bg.ball.getCoarseGrainedMinY()=465.86652
+bg.ball.getCoarseGrainedMaxY()=497.86652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 559.7003ball.y =478.6665
+bg.ball.getCoarseGrainedMinY()=462.6665
+bg.ball.getCoarseGrainedMaxY()=494.6665
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 561.4003ball.y =475.2665
+bg.ball.getCoarseGrainedMinY()=459.2665
+bg.ball.getCoarseGrainedMaxY()=491.2665
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 563.10034ball.y =471.86652
+bg.ball.getCoarseGrainedMinY()=455.86652
+bg.ball.getCoarseGrainedMaxY()=487.86652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 564.80035ball.y =468.46652
+bg.ball.getCoarseGrainedMinY()=452.46652
+bg.ball.getCoarseGrainedMaxY()=484.46652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 566.4003ball.y =465.2665
+bg.ball.getCoarseGrainedMinY()=449.2665
+bg.ball.getCoarseGrainedMaxY()=481.2665
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 568.10034ball.y =461.86652
+bg.ball.getCoarseGrainedMinY()=445.86652
+bg.ball.getCoarseGrainedMaxY()=477.86652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 569.80035ball.y =458.46652
+bg.ball.getCoarseGrainedMinY()=442.46652
+bg.ball.getCoarseGrainedMaxY()=474.46652
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+***** check point 1 begin *********
+ball.x = 571.50037ball.y =455.06653
+bg.ball.getCoarseGrainedMinY()=439.06653
+bg.ball.getCoarseGrainedMaxY()=471.06653
+ball.vx= 0.1
+ball.vY= -0.2
+***** check point 1 end *********
+AL lib: (WW) FreeContext: (0x7f9a42453ef0) Deleting 64 Source(s)
+AL lib: (WW) FreeDevice: (0x7f9a4419a400) Deleting 1 Buffer(s)

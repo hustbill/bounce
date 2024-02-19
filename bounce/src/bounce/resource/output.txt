@@ -1,0 +1,886 @@
+Wed Sep 17 23:35:47 PDT 2014 INFO:Slick Build #237
+Wed Sep 17 23:35:47 PDT 2014 INFO:LWJGL Version: 2.9.0
+Wed Sep 17 23:35:47 PDT 2014 INFO:OriginalDisplayMode: 1920 x 1080 x 32 @0Hz
+Wed Sep 17 23:35:47 PDT 2014 INFO:TargetDisplayMode: 800 x 600 x 0 @0Hz
+Wed Sep 17 23:35:47 PDT 2014 INFO:Starting display 800x600
+Wed Sep 17 23:35:47 PDT 2014 INFO:Use Java PNG Loader = true
+Loading: net.java.games.input.OSXEnvironmentPlugin
+Wed Sep 17 23:35:47 PDT 2014 INFO:Found 0 controllers
+Wed Sep 17 23:35:47 PDT 2014 INFO:Initialising sounds..
+Wed Sep 17 23:35:47 PDT 2014 INFO:- Sound works
+Wed Sep 17 23:35:47 PDT 2014 INFO:- 64 OpenAL source available
+Wed Sep 17 23:35:47 PDT 2014 INFO:- Sounds source generated
+levels= 1
+levels= 1
+levels= 1
+levels= 1
+collision detected! 
+bounces= 1
+levels= 1
+levels= 1
+collision detected! 
+******** powerUp begin ************
+ball.vx=0.1
+ball.vy=0.12
+******** powerUp end ************
+ball.vx=0.1
+ball.vy=0.12
+collision detected! 
+******** powerUp begin ************
+ball.vx=0.1
+ball.vy=-0.12
+******** powerUp end ************
+ball.vx=0.11000001
+ball.vy=-0.132
+Right Key: bg.paddle.getVelocity().getX() = 0.005
+Right Key: bg.paddle.getVelocity().getX() = 0.01
+Right Key: bg.paddle.getVelocity().getX() = 0.015
+Right Key: bg.paddle.getVelocity().getX() = 0.02
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+bounces= 2
+bounces= 3
+collision detected! 
+bounces= 4
+collision detected! 
+collision detected! 
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+bounces= 5
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Left key: bg.paddle.getVelocity().getX() = -0.14
+Left key: bg.paddle.getVelocity().getX() = -0.145
+Left key: bg.paddle.getVelocity().getX() = -0.14999999
+Left key: bg.paddle.getVelocity().getX() = -0.15499999
+Left key: bg.paddle.getVelocity().getX() = -0.15999998
+Left key: bg.paddle.getVelocity().getX() = -0.16499998
+collision detected! 
+collision detected! 
+collision detected! 
+bounces= 6
+collision detected! 
+collision detected! 
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.16999997
+Left key: bg.paddle.getVelocity().getX() = -0.17499997
+Left key: bg.paddle.getVelocity().getX() = -0.17999996
+Left key: bg.paddle.getVelocity().getX() = -0.18499996
+Left key: bg.paddle.getVelocity().getX() = -0.18999995
+Left key: bg.paddle.getVelocity().getX() = -0.19499995
+Left key: bg.paddle.getVelocity().getX() = -0.19999994
+Left key: bg.paddle.getVelocity().getX() = -0.20499994
+Left key: bg.paddle.getVelocity().getX() = -0.20999993
+Left key: bg.paddle.getVelocity().getX() = -0.21499993
+Left key: bg.paddle.getVelocity().getX() = -0.21999992
+Left key: bg.paddle.getVelocity().getX() = -0.22499992
+bounces= 7
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+collision detected! 
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+collision detected! 
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+Right Key: bg.paddle.getVelocity().getX() = 0.13000001
+Right Key: bg.paddle.getVelocity().getX() = 0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.14
+Right Key: bg.paddle.getVelocity().getX() = 0.145
+Right Key: bg.paddle.getVelocity().getX() = 0.14999999
+Right Key: bg.paddle.getVelocity().getX() = 0.15499999
+Right Key: bg.paddle.getVelocity().getX() = 0.15999998
+Right Key: bg.paddle.getVelocity().getX() = 0.16499998
+Right Key: bg.paddle.getVelocity().getX() = 0.16999997
+Right Key: bg.paddle.getVelocity().getX() = 0.17499997
+Right Key: bg.paddle.getVelocity().getX() = 0.17999996
+Right Key: bg.paddle.getVelocity().getX() = 0.18499996
+bounces= 8
+collision detected! 
+collision detected! 
+collision detected! 
+bounces= 9
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.02
+bounces= 10
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Left key: bg.paddle.getVelocity().getX() = -0.14
+Left key: bg.paddle.getVelocity().getX() = -0.145
+Left key: bg.paddle.getVelocity().getX() = -0.14999999
+Left key: bg.paddle.getVelocity().getX() = -0.15499999
+Left key: bg.paddle.getVelocity().getX() = -0.15999998
+Left key: bg.paddle.getVelocity().getX() = -0.16499998
+Left key: bg.paddle.getVelocity().getX() = -0.16999997
+Left key: bg.paddle.getVelocity().getX() = -0.17499997
+Left key: bg.paddle.getVelocity().getX() = -0.17999996
+bounces= 11
+Left key: bg.paddle.getVelocity().getX() = -0.18499996
+Left key: bg.paddle.getVelocity().getX() = -0.18999995
+Left key: bg.paddle.getVelocity().getX() = -0.19499995
+Left key: bg.paddle.getVelocity().getX() = -0.19999994
+Left key: bg.paddle.getVelocity().getX() = -0.20499994
+Left key: bg.paddle.getVelocity().getX() = -0.20999993
+Left key: bg.paddle.getVelocity().getX() = -0.21499993
+Left key: bg.paddle.getVelocity().getX() = -0.21999992
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+collision detected! 
+collision detected! 
+collision detected! 
+collision detected! 
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+Right Key: bg.paddle.getVelocity().getX() = 0.13000001
+Right Key: bg.paddle.getVelocity().getX() = 0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.14
+Right Key: bg.paddle.getVelocity().getX() = 0.145
+Right Key: bg.paddle.getVelocity().getX() = 0.14999999
+Right Key: bg.paddle.getVelocity().getX() = 0.15499999
+Right Key: bg.paddle.getVelocity().getX() = 0.15999998
+Right Key: bg.paddle.getVelocity().getX() = 0.16499998
+Right Key: bg.paddle.getVelocity().getX() = 0.16999997
+Right Key: bg.paddle.getVelocity().getX() = 0.17499997
+Right Key: bg.paddle.getVelocity().getX() = 0.17999996
+Right Key: bg.paddle.getVelocity().getX() = 0.18499996
+Right Key: bg.paddle.getVelocity().getX() = 0.18999995
+Right Key: bg.paddle.getVelocity().getX() = 0.19499995
+Right Key: bg.paddle.getVelocity().getX() = 0.19999994
+Right Key: bg.paddle.getVelocity().getX() = 0.20499994
+Right Key: bg.paddle.getVelocity().getX() = 0.20999993
+Right Key: bg.paddle.getVelocity().getX() = 0.21499993
+Right Key: bg.paddle.getVelocity().getX() = 0.21999992
+Right Key: bg.paddle.getVelocity().getX() = 0.22499992
+Right Key: bg.paddle.getVelocity().getX() = 0.22999991
+Right Key: bg.paddle.getVelocity().getX() = 0.23499991
+Right Key: bg.paddle.getVelocity().getX() = 0.2399999
+bounces= 12
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Left key: bg.paddle.getVelocity().getX() = -0.14
+Left key: bg.paddle.getVelocity().getX() = -0.145
+Left key: bg.paddle.getVelocity().getX() = -0.14999999
+Left key: bg.paddle.getVelocity().getX() = -0.15499999
+Left key: bg.paddle.getVelocity().getX() = -0.15999998
+Left key: bg.paddle.getVelocity().getX() = -0.16499998
+Left key: bg.paddle.getVelocity().getX() = -0.16999997
+Left key: bg.paddle.getVelocity().getX() = -0.17499997
+Left key: bg.paddle.getVelocity().getX() = -0.17999996
+Left key: bg.paddle.getVelocity().getX() = -0.18499996
+Left key: bg.paddle.getVelocity().getX() = -0.18999995
+Left key: bg.paddle.getVelocity().getX() = -0.19499995
+Left key: bg.paddle.getVelocity().getX() = -0.19999994
+Left key: bg.paddle.getVelocity().getX() = -0.20499994
+Left key: bg.paddle.getVelocity().getX() = -0.20999993
+Left key: bg.paddle.getVelocity().getX() = -0.21499993
+Left key: bg.paddle.getVelocity().getX() = -0.21999992
+Left key: bg.paddle.getVelocity().getX() = -0.22499992
+Left key: bg.paddle.getVelocity().getX() = -0.22999991
+Left key: bg.paddle.getVelocity().getX() = -0.23499991
+Left key: bg.paddle.getVelocity().getX() = -0.2399999
+Left key: bg.paddle.getVelocity().getX() = -0.2449999
+Left key: bg.paddle.getVelocity().getX() = -0.2499999
+Left key: bg.paddle.getVelocity().getX() = -0.2549999
+Left key: bg.paddle.getVelocity().getX() = -0.2599999
+Left key: bg.paddle.getVelocity().getX() = -0.2649999
+Left key: bg.paddle.getVelocity().getX() = -0.2699999
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+Right Key: bg.paddle.getVelocity().getX() = 0.13000001
+Right Key: bg.paddle.getVelocity().getX() = 0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.14
+Right Key: bg.paddle.getVelocity().getX() = 0.145
+Right Key: bg.paddle.getVelocity().getX() = 0.14999999
+Right Key: bg.paddle.getVelocity().getX() = 0.15499999
+Right Key: bg.paddle.getVelocity().getX() = 0.15999998
+levels= 1
+levels= 1
+collision detected! 
+******** powerUp begin ************
+ball.vx=0.1
+ball.vy=0.12
+******** powerUp end ************
+ball.vx=0.1
+ball.vy=0.12
+Right Key: bg.paddle.getVelocity().getX() = 0.005
+collision detected! 
+******** powerUp begin ************
+ball.vx=0.1
+ball.vy=-0.12
+******** powerUp end ************
+ball.vx=0.11000001
+ball.vy=-0.132
+Right Key: bg.paddle.getVelocity().getX() = 0.01
+Right Key: bg.paddle.getVelocity().getX() = 0.015
+Right Key: bg.paddle.getVelocity().getX() = 0.02
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+bounces= 13
+bounces= 14
+collision detected! 
+levels= 2
+levels= 2
+levels= 2
+levels= 2
+collision detected! 
+******** powerUp begin ************
+ball.vx=-0.12
+ball.vy=0.13
+******** powerUp end ************
+ball.vx=-0.12
+ball.vy=0.13
+collision detected! 
+******** powerUp begin ************
+ball.vx=-0.12
+ball.vy=-0.13
+******** powerUp end ************
+ball.vx=-0.132
+ball.vy=-0.14299999
+collision detected! 
+Enter into Brick update method
+levels= 2
+Left key: bg.paddle.getVelocity().getX() = -0.005
+Left key: bg.paddle.getVelocity().getX() = -0.01
+Left key: bg.paddle.getVelocity().getX() = -0.015
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+bounces= 15
+levels= 2
+levels= 2
+collision detected! 
+******** powerUp begin ************
+ball.vx=-0.12
+ball.vy=0.13
+******** powerUp end ************
+ball.vx=-0.12
+ball.vy=0.13
+collision detected! 
+******** powerUp begin ************
+ball.vx=-0.12
+ball.vy=-0.13
+******** powerUp end ************
+ball.vx=-0.132
+ball.vy=-0.14299999
+Left key: bg.paddle.getVelocity().getX() = -0.005
+Left key: bg.paddle.getVelocity().getX() = -0.01
+Left key: bg.paddle.getVelocity().getX() = -0.015
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+collision detected! 
+Enter into Brick update method
+levels= 2
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Left key: bg.paddle.getVelocity().getX() = -0.14
+Left key: bg.paddle.getVelocity().getX() = -0.145
+Left key: bg.paddle.getVelocity().getX() = -0.14999999
+Left key: bg.paddle.getVelocity().getX() = -0.15499999
+Left key: bg.paddle.getVelocity().getX() = -0.15999998
+Left key: bg.paddle.getVelocity().getX() = -0.16499998
+Left key: bg.paddle.getVelocity().getX() = -0.16999997
+Left key: bg.paddle.getVelocity().getX() = -0.17499997
+Left key: bg.paddle.getVelocity().getX() = -0.17999996
+Left key: bg.paddle.getVelocity().getX() = -0.18499996
+Left key: bg.paddle.getVelocity().getX() = -0.18999995
+Left key: bg.paddle.getVelocity().getX() = -0.19499995
+Left key: bg.paddle.getVelocity().getX() = -0.19999994
+Left key: bg.paddle.getVelocity().getX() = -0.20499994
+Left key: bg.paddle.getVelocity().getX() = -0.20999993
+Left key: bg.paddle.getVelocity().getX() = -0.21499993
+Left key: bg.paddle.getVelocity().getX() = -0.21999992
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+bounces= 16
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+levels= 2
+levels= 2
+Left key: bg.paddle.getVelocity().getX() = -0.005
+Left key: bg.paddle.getVelocity().getX() = -0.01
+Left key: bg.paddle.getVelocity().getX() = -0.015
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Left key: bg.paddle.getVelocity().getX() = -0.14
+Left key: bg.paddle.getVelocity().getX() = -0.145
+Left key: bg.paddle.getVelocity().getX() = -0.14999999
+Left key: bg.paddle.getVelocity().getX() = -0.15499999
+Left key: bg.paddle.getVelocity().getX() = -0.15999998
+Left key: bg.paddle.getVelocity().getX() = -0.16499998
+Left key: bg.paddle.getVelocity().getX() = -0.16999997
+Left key: bg.paddle.getVelocity().getX() = -0.17499997
+Left key: bg.paddle.getVelocity().getX() = -0.17999996
+Left key: bg.paddle.getVelocity().getX() = -0.18499996
+Left key: bg.paddle.getVelocity().getX() = -0.18999995
+Left key: bg.paddle.getVelocity().getX() = -0.19499995
+Left key: bg.paddle.getVelocity().getX() = -0.19999994
+Left key: bg.paddle.getVelocity().getX() = -0.20499994
+Left key: bg.paddle.getVelocity().getX() = -0.20999993
+Left key: bg.paddle.getVelocity().getX() = -0.21499993
+Left key: bg.paddle.getVelocity().getX() = -0.21999992
+Left key: bg.paddle.getVelocity().getX() = -0.22499992
+Left key: bg.paddle.getVelocity().getX() = -0.22999991
+Left key: bg.paddle.getVelocity().getX() = -0.23499991
+Left key: bg.paddle.getVelocity().getX() = -0.2399999
+Left key: bg.paddle.getVelocity().getX() = -0.2449999
+Left key: bg.paddle.getVelocity().getX() = -0.2499999
+Left key: bg.paddle.getVelocity().getX() = -0.2549999
+Left key: bg.paddle.getVelocity().getX() = -0.2599999
+Left key: bg.paddle.getVelocity().getX() = -0.2649999
+Left key: bg.paddle.getVelocity().getX() = -0.2699999
+Left key: bg.paddle.getVelocity().getX() = -0.2749999
+Left key: bg.paddle.getVelocity().getX() = -0.27999988
+Left key: bg.paddle.getVelocity().getX() = -0.28499988
+Left key: bg.paddle.getVelocity().getX() = -0.28999987
+Left key: bg.paddle.getVelocity().getX() = -0.29499987
+Left key: bg.paddle.getVelocity().getX() = -0.29999986
+Left key: bg.paddle.getVelocity().getX() = -0.30499986
+Left key: bg.paddle.getVelocity().getX() = -0.30999985
+Left key: bg.paddle.getVelocity().getX() = -0.31499985
+Left key: bg.paddle.getVelocity().getX() = -0.31999984
+Left key: bg.paddle.getVelocity().getX() = -0.32499984
+Left key: bg.paddle.getVelocity().getX() = -0.32999983
+Left key: bg.paddle.getVelocity().getX() = -0.33499983
+Left key: bg.paddle.getVelocity().getX() = -0.33999982
+Left key: bg.paddle.getVelocity().getX() = -0.34499982
+Left key: bg.paddle.getVelocity().getX() = -0.34999982
+Left key: bg.paddle.getVelocity().getX() = -0.3549998
+Left key: bg.paddle.getVelocity().getX() = -0.3599998
+Left key: bg.paddle.getVelocity().getX() = -0.3649998
+Left key: bg.paddle.getVelocity().getX() = -0.3699998
+Left key: bg.paddle.getVelocity().getX() = -0.3749998
+Left key: bg.paddle.getVelocity().getX() = -0.3799998
+Left key: bg.paddle.getVelocity().getX() = -0.38499978
+Left key: bg.paddle.getVelocity().getX() = -0.38999978
+Left key: bg.paddle.getVelocity().getX() = -0.39499977
+Left key: bg.paddle.getVelocity().getX() = -0.39999977
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+collision detected! 
+Enter into Brick update method
+levels= 2
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+Right Key: bg.paddle.getVelocity().getX() = 0.13000001
+Right Key: bg.paddle.getVelocity().getX() = 0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.14
+Right Key: bg.paddle.getVelocity().getX() = 0.145
+Right Key: bg.paddle.getVelocity().getX() = 0.14999999
+Right Key: bg.paddle.getVelocity().getX() = 0.15499999
+Right Key: bg.paddle.getVelocity().getX() = 0.15999998
+Right Key: bg.paddle.getVelocity().getX() = 0.16499998
+Right Key: bg.paddle.getVelocity().getX() = 0.16999997
+Right Key: bg.paddle.getVelocity().getX() = 0.17499997
+Right Key: bg.paddle.getVelocity().getX() = 0.17999996
+Right Key: bg.paddle.getVelocity().getX() = 0.18499996
+Right Key: bg.paddle.getVelocity().getX() = 0.18999995
+Right Key: bg.paddle.getVelocity().getX() = 0.19499995
+Right Key: bg.paddle.getVelocity().getX() = 0.19999994
+Right Key: bg.paddle.getVelocity().getX() = 0.20499994
+Right Key: bg.paddle.getVelocity().getX() = 0.20999993
+Right Key: bg.paddle.getVelocity().getX() = 0.21499993
+Right Key: bg.paddle.getVelocity().getX() = 0.21999992
+Right Key: bg.paddle.getVelocity().getX() = 0.22499992
+Right Key: bg.paddle.getVelocity().getX() = 0.22999991
+Right Key: bg.paddle.getVelocity().getX() = 0.23499991
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+collision detected! 
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Left key: bg.paddle.getVelocity().getX() = -0.14
+Left key: bg.paddle.getVelocity().getX() = -0.145
+Left key: bg.paddle.getVelocity().getX() = -0.14999999
+Left key: bg.paddle.getVelocity().getX() = -0.15499999
+Left key: bg.paddle.getVelocity().getX() = -0.15999998
+Left key: bg.paddle.getVelocity().getX() = -0.16499998
+Left key: bg.paddle.getVelocity().getX() = -0.16999997
+Left key: bg.paddle.getVelocity().getX() = -0.17499997
+Left key: bg.paddle.getVelocity().getX() = -0.17999996
+Left key: bg.paddle.getVelocity().getX() = -0.18499996
+Left key: bg.paddle.getVelocity().getX() = -0.18999995
+Left key: bg.paddle.getVelocity().getX() = -0.19499995
+Left key: bg.paddle.getVelocity().getX() = -0.19999994
+Left key: bg.paddle.getVelocity().getX() = -0.20499994
+Left key: bg.paddle.getVelocity().getX() = -0.20999993
+Left key: bg.paddle.getVelocity().getX() = -0.21499993
+Left key: bg.paddle.getVelocity().getX() = -0.21999992
+Left key: bg.paddle.getVelocity().getX() = -0.22499992
+Left key: bg.paddle.getVelocity().getX() = -0.22999991
+Left key: bg.paddle.getVelocity().getX() = -0.23499991
+Left key: bg.paddle.getVelocity().getX() = -0.2399999
+Left key: bg.paddle.getVelocity().getX() = -0.2449999
+Left key: bg.paddle.getVelocity().getX() = -0.2499999
+Left key: bg.paddle.getVelocity().getX() = -0.2549999
+Left key: bg.paddle.getVelocity().getX() = -0.2599999
+Left key: bg.paddle.getVelocity().getX() = -0.2649999
+Left key: bg.paddle.getVelocity().getX() = -0.2699999
+Left key: bg.paddle.getVelocity().getX() = -0.2749999
+bounces= 17
+Left key: bg.paddle.getVelocity().getX() = -0.27999988
+Left key: bg.paddle.getVelocity().getX() = -0.28499988
+Left key: bg.paddle.getVelocity().getX() = -0.28999987
+Left key: bg.paddle.getVelocity().getX() = -0.29499987
+Left key: bg.paddle.getVelocity().getX() = -0.29999986
+Left key: bg.paddle.getVelocity().getX() = -0.30499986
+Left key: bg.paddle.getVelocity().getX() = -0.30999985
+Left key: bg.paddle.getVelocity().getX() = -0.31499985
+Left key: bg.paddle.getVelocity().getX() = -0.31999984
+Left key: bg.paddle.getVelocity().getX() = -0.32499984
+Left key: bg.paddle.getVelocity().getX() = -0.32999983
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+collision detected! 
+******** powerUp begin ************
+ball.vx=0.12
+ball.vy=-0.13
+******** powerUp end ************
+ball.vx=0.132
+ball.vy=-0.14299999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+Right Key: bg.paddle.getVelocity().getX() = 0.13000001
+Right Key: bg.paddle.getVelocity().getX() = 0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.14
+Right Key: bg.paddle.getVelocity().getX() = 0.145
+Right Key: bg.paddle.getVelocity().getX() = 0.14999999
+Right Key: bg.paddle.getVelocity().getX() = 0.15499999
+Right Key: bg.paddle.getVelocity().getX() = 0.15999998
+Right Key: bg.paddle.getVelocity().getX() = 0.16499998
+collision detected! 
+Enter into Brick update method
+levels= 2
+collision detected! 
+Enter into Brick update method
+levels= 2
+Right Key: bg.paddle.getVelocity().getX() = 0.16999997
+collision detected! 
+Enter into Brick update method
+levels= 2
+Right Key: bg.paddle.getVelocity().getX() = 0.17499997
+Right Key: bg.paddle.getVelocity().getX() = 0.17999996
+Right Key: bg.paddle.getVelocity().getX() = 0.18499996
+Right Key: bg.paddle.getVelocity().getX() = 0.18999995
+Right Key: bg.paddle.getVelocity().getX() = 0.19499995
+Right Key: bg.paddle.getVelocity().getX() = 0.19999994
+Right Key: bg.paddle.getVelocity().getX() = 0.20499994
+Right Key: bg.paddle.getVelocity().getX() = 0.20999993
+Right Key: bg.paddle.getVelocity().getX() = 0.21499993
+Right Key: bg.paddle.getVelocity().getX() = 0.21999992
+Right Key: bg.paddle.getVelocity().getX() = 0.22499992
+Right Key: bg.paddle.getVelocity().getX() = 0.22999991
+Right Key: bg.paddle.getVelocity().getX() = 0.23499991
+Right Key: bg.paddle.getVelocity().getX() = 0.2399999
+Right Key: bg.paddle.getVelocity().getX() = 0.2449999
+Right Key: bg.paddle.getVelocity().getX() = 0.2499999
+Right Key: bg.paddle.getVelocity().getX() = 0.2549999
+Right Key: bg.paddle.getVelocity().getX() = 0.2599999
+Right Key: bg.paddle.getVelocity().getX() = 0.2649999
+Right Key: bg.paddle.getVelocity().getX() = 0.2699999
+Right Key: bg.paddle.getVelocity().getX() = 0.2749999
+Right Key: bg.paddle.getVelocity().getX() = 0.27999988
+Right Key: bg.paddle.getVelocity().getX() = 0.28499988
+Right Key: bg.paddle.getVelocity().getX() = 0.28999987
+Right Key: bg.paddle.getVelocity().getX() = 0.29499987
+Right Key: bg.paddle.getVelocity().getX() = 0.29999986
+Right Key: bg.paddle.getVelocity().getX() = 0.30499986
+Right Key: bg.paddle.getVelocity().getX() = 0.30999985
+Right Key: bg.paddle.getVelocity().getX() = 0.31499985
+Left key: bg.paddle.getVelocity().getX() = -0.02
+Left key: bg.paddle.getVelocity().getX() = -0.024999999
+Left key: bg.paddle.getVelocity().getX() = -0.029999997
+Left key: bg.paddle.getVelocity().getX() = -0.034999996
+Left key: bg.paddle.getVelocity().getX() = -0.039999995
+Left key: bg.paddle.getVelocity().getX() = -0.044999994
+Left key: bg.paddle.getVelocity().getX() = -0.049999993
+Left key: bg.paddle.getVelocity().getX() = -0.054999992
+Left key: bg.paddle.getVelocity().getX() = -0.05999999
+Left key: bg.paddle.getVelocity().getX() = -0.06499999
+Left key: bg.paddle.getVelocity().getX() = -0.06999999
+Left key: bg.paddle.getVelocity().getX() = -0.074999996
+Left key: bg.paddle.getVelocity().getX() = -0.08
+Left key: bg.paddle.getVelocity().getX() = -0.085
+Left key: bg.paddle.getVelocity().getX() = -0.09
+Left key: bg.paddle.getVelocity().getX() = -0.095000006
+Left key: bg.paddle.getVelocity().getX() = -0.10000001
+Left key: bg.paddle.getVelocity().getX() = -0.10500001
+Left key: bg.paddle.getVelocity().getX() = -0.110000014
+Left key: bg.paddle.getVelocity().getX() = -0.11500002
+Left key: bg.paddle.getVelocity().getX() = -0.12000002
+Left key: bg.paddle.getVelocity().getX() = -0.12500001
+Left key: bg.paddle.getVelocity().getX() = -0.13000001
+Left key: bg.paddle.getVelocity().getX() = -0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.024999999
+Right Key: bg.paddle.getVelocity().getX() = 0.029999997
+Right Key: bg.paddle.getVelocity().getX() = 0.034999996
+Right Key: bg.paddle.getVelocity().getX() = 0.039999995
+Right Key: bg.paddle.getVelocity().getX() = 0.044999994
+Right Key: bg.paddle.getVelocity().getX() = 0.049999993
+Right Key: bg.paddle.getVelocity().getX() = 0.054999992
+Right Key: bg.paddle.getVelocity().getX() = 0.05999999
+Right Key: bg.paddle.getVelocity().getX() = 0.06499999
+Right Key: bg.paddle.getVelocity().getX() = 0.06999999
+Right Key: bg.paddle.getVelocity().getX() = 0.074999996
+Right Key: bg.paddle.getVelocity().getX() = 0.08
+Right Key: bg.paddle.getVelocity().getX() = 0.085
+Right Key: bg.paddle.getVelocity().getX() = 0.09
+Right Key: bg.paddle.getVelocity().getX() = 0.095000006
+Right Key: bg.paddle.getVelocity().getX() = 0.10000001
+Right Key: bg.paddle.getVelocity().getX() = 0.10500001
+Right Key: bg.paddle.getVelocity().getX() = 0.110000014
+Right Key: bg.paddle.getVelocity().getX() = 0.11500002
+Right Key: bg.paddle.getVelocity().getX() = 0.12000002
+Right Key: bg.paddle.getVelocity().getX() = 0.12500001
+Right Key: bg.paddle.getVelocity().getX() = 0.13000001
+Right Key: bg.paddle.getVelocity().getX() = 0.135
+Right Key: bg.paddle.getVelocity().getX() = 0.14
+Right Key: bg.paddle.getVelocity().getX() = 0.145
+Right Key: bg.paddle.getVelocity().getX() = 0.14999999
+Right Key: bg.paddle.getVelocity().getX() = 0.15499999
+Right Key: bg.paddle.getVelocity().getX() = 0.15999998
+Right Key: bg.paddle.getVelocity().getX() = 0.16499998
+Right Key: bg.paddle.getVelocity().getX() = 0.16999997
+Right Key: bg.paddle.getVelocity().getX() = 0.17499997
+Right Key: bg.paddle.getVelocity().getX() = 0.17999996
+Right Key: bg.paddle.getVelocity().getX() = 0.18499996
+Right Key: bg.paddle.getVelocity().getX() = 0.18999995
+Right Key: bg.paddle.getVelocity().getX() = 0.19499995
+Right Key: bg.paddle.getVelocity().getX() = 0.19999994
+Right Key: bg.paddle.getVelocity().getX() = 0.20499994
+Right Key: bg.paddle.getVelocity().getX() = 0.20999993
+Right Key: bg.paddle.getVelocity().getX() = 0.21499993
+Right Key: bg.paddle.getVelocity().getX() = 0.21999992
+Right Key: bg.paddle.getVelocity().getX() = 0.22499992
+Right Key: bg.paddle.getVelocity().getX() = 0.22999991
+levels= 2
+levels= 2
+AL lib: (WW) FreeContext: (0x7fcb23f8da60) Deleting 64 Source(s)
+AL lib: (WW) FreeDevice: (0x7fcb25968000) Deleting 5 Buffer(s)

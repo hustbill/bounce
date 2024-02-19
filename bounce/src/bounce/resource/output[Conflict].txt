@@ -1,0 +1,15 @@
+Tue Sep 16 15:56:58 PDT 2014 INFO:Slick Build #237
+Tue Sep 16 15:56:58 PDT 2014 INFO:LWJGL Version: 2.9.0
+Tue Sep 16 15:56:58 PDT 2014 INFO:OriginalDisplayMode: 1920 x 1080 x 32 @0Hz
+Tue Sep 16 15:56:58 PDT 2014 INFO:TargetDisplayMode: 800 x 600 x 0 @0Hz
+Tue Sep 16 15:56:58 PDT 2014 INFO:Starting display 800x600
+Tue Sep 16 15:56:58 PDT 2014 INFO:Use Java PNG Loader = true
+Loading: net.java.games.input.OSXEnvironmentPlugin
+Tue Sep 16 15:56:58 PDT 2014 INFO:Found 0 controllers
+Tue Sep 16 15:56:58 PDT 2014 INFO:Initialising sounds..
+Tue Sep 16 15:56:58 PDT 2014 INFO:- Sound works
+Tue Sep 16 15:56:58 PDT 2014 INFO:- 64 OpenAL source available
+Tue Sep 16 15:56:58 PDT 2014 INFO:- Sounds source generated
+levels= 1
+AL lib: (WW) FreeContext: (0x7ffb4af58bc0) Deleting 64 Source(s)
+AL lib: (WW) FreeDevice: (0x7ffb4c123c00) Deleting 1 Buffer(s)
